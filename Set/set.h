@@ -6,11 +6,7 @@
 #ifndef SET_H
 #define	SET_H
 
-class Set {
-    size_t size_;
-    item *first_;
-    item *last_;
-    void swap(Set & set);
+class Set {   
 public:
     Set();
     Set(Set const &);
@@ -27,6 +23,15 @@ public:
     Set& operator = (const Set &set);
     friend std::ostream & operator << (std::ostream &, Set const &);
     ~Set();
+
+private:
+    size_t size_;
+    item * first_;
+    item * last_;
+
+private:
+    void swap(Set & set);
+
 };
 
 Set operator + (Set const &, Set const &);

@@ -14,11 +14,11 @@ public:
     ~MyString();
 
     size_t size() const;
-    char const  & at(size_t idx) const;
-    char & at(size_t idx);
+    char const  & at(const size_t & idx) const;
+    char & at(const size_t & idx);
     const char * c_str() const;
-    int compare(MyString & str) const;
-    void append(MyString & str);
+    int compare(const MyString & str) const;
+    void append(const MyString & str);
     void swap(MyString & str);
 
 private:

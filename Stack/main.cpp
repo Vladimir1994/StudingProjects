@@ -12,7 +12,7 @@ int main() {
     S.push(4);
     S.show();
     cout << endl;
-    S.max_to_top();
+    S.MaxToTop();
     S.show();
     cout << endl;
     int val = S.pop();

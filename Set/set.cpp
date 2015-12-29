@@ -289,7 +289,7 @@ Set &Set::operator -= (Set const & set){
     return *this;
 }
 
-Set &Set::operator*=(Set const & set){
+Set &Set::operator *= (Set const & set){
     this->Intersection(set);
     return *this;
 }

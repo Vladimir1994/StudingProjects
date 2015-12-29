@@ -6,10 +6,10 @@
 class Stack {
 public:
     Stack();
-    void push(int);
+    void push(const int &);
     int pop();
     void show();
-    void max_to_top();
+    void MaxToTop();
     ~Stack();
 
 private:

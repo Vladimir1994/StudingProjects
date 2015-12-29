@@ -40,11 +40,11 @@ size_t MyString::size() const {
     return size_;
 }
 
-char const & MyString::at(size_t idx) const {
+char const & MyString::at(const size_t & idx) const {
         return str_[idx];
 }
 
-char & MyString::at(size_t idx){
+char & MyString::at(const size_t & idx){
         return str_[idx];
 }
 
@@ -53,11 +53,11 @@ const char * MyString::c_str() const {
     return str;
 }
 
-int MyString::compare(MyString &str) const {
+int MyString::compare(const MyString &str) const {
     return std::strcmp(this->c_str(), str.c_str());
 }
 
-void MyString::append(MyString &str) {
+void MyString::append(const MyString &str) {
     char *tmp = new char[size_+1];
     std::strcpy(tmp, str_);
     delete [] str_;

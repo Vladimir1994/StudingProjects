@@ -5,7 +5,7 @@ using namespace std;
 
 Stack::Stack() : head_(0) {}
 
-void Stack::push(int val) {
+void Stack::push(const int & val) {
     if(head_ == 0)
     {
         item *it = new item(val);
@@ -38,7 +38,7 @@ int Stack::pop()
     }
 }
 
-void Stack::max_to_top()
+void Stack::MaxToTop()
 {
     item *it = head_;
     item *it_max = head_;
