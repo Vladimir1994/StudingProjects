@@ -1,0 +1,1 @@
+Пример паттерна model observer.

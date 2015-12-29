@@ -1,6 +1,6 @@
 #include "calculator.h"
 
-double Calculator::useStrategy(double arg) {
+double Calculator::useStrategy(const double & arg) {
     return (*func_)(arg);
 }
 

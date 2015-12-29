@@ -12,8 +12,8 @@ public:
     PlotHolder(QCustomPlot * cp = 0);
     virtual ~PlotHolder() {}
     void setPlot(QCustomPlot * cp);
-    void addCurve(int curve_idx);
-    void removeCurve(int curve_idx);
+    void addCurve(const int & curve_idx);
+    void removeCurve(const int & curve_idx);
 
     virtual void handleEvent(const Model & mdl) override;
 

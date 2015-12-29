@@ -12,12 +12,12 @@ void PlotHolder::setPlot(QCustomPlot * cp) {
     cp_ = cp;
 }
 
-void PlotHolder::addCurve(int curve_idx) {
+void PlotHolder::addCurve(const int & curve_idx) {
     if(!curve_idx_.contains(curve_idx))
         curve_idx_.append(curve_idx);
 }
 
-void PlotHolder::removeCurve(int curve_idx) {
+void PlotHolder::removeCurve(const int & curve_idx) {
     foreach(int i, curve_idx_) {
         if(curve_idx_[i] == curve_idx)
             curve_idx_.remove(i);

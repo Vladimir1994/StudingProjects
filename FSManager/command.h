@@ -9,14 +9,14 @@
 class Command
 {
 public:
-   Command(int);
+   Command(int argsCount);
    virtual ~Command() {}
-   virtual bool Execute(QString&) = 0;
-   virtual bool UnExecute(QString&) = 0;
-   bool SetArgs(QStringList);
+   virtual bool Execute(QString &) = 0;
+   virtual bool UnExecute(QString &) = 0;
+   bool SetArgs(const QStringList & argsList);
 
 protected:
-   int args_count_;
+   int argsCount;
    QVector<QString> args_;
 };
 

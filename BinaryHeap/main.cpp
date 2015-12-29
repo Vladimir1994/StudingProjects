@@ -5,7 +5,7 @@
 
 int main(){
     std::string cmd;
-    Binary_Heap heap;
+    BinaryHeap heap;
     int len;
     std::cin >> len;
     while(true) {

@@ -7,25 +7,25 @@ Rational::Rational(int numerator, int denominator) {
     this->reduce();
 }
 
-void Rational::add(Rational rational){
+void Rational::add(Rational const & rational){
     numerator_ = rational.numerator_*denominator_ + rational.denominator_*numerator_;
     denominator_ *= rational.denominator_;
     this->reduce();
 }
 
-void Rational::sub(Rational rational){
+void Rational::sub(Rational const & rational){
     numerator_ =  rational.denominator_*numerator_ - rational.numerator_*denominator_;
     denominator_ *= rational.denominator_;
     this->reduce();
 }
 
-void Rational::mul(Rational rational){
+void Rational::mul(Rational const & rational){
     numerator_ *= rational.numerator_;
     denominator_ *= rational.denominator_;
     this->reduce();
 }
 
-void Rational::div(Rational rational){
+void Rational::div(Rational const & rational){
     numerator_ *= rational.denominator_*(rational.numerator_/abs(rational.numerator_));
     denominator_ *= abs(rational.numerator_);
     this->reduce();
@@ -95,7 +95,7 @@ std::istream & operator >> (std::istream & in, Rational & r) {
     return in;
 }
 
-int Rational::gcd (int a, int b) {
+int Rational::gcd (int const & a, int const & b) {
     if (b == 0)
         return a;
     else

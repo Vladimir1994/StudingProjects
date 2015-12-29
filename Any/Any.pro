@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     any.cpp \
-    valueholder.cpp
+    valueholder.cpp \
+    any.tpp
 
 HEADERS += \
     any.h \

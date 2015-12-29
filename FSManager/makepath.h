@@ -8,11 +8,11 @@ class MakePath : public Command
 public:
     MakePath();
     ~MakePath() {}
-    bool Execute(QString&);
-    bool UnExecute(QString&);
+    bool Execute(QString &);
+    bool UnExecute(QString &);
 
 private:
-    QString first_created_dir_;
+    QString firstCreatedDir_;
 };
 
 #endif // MAKEPATH_H

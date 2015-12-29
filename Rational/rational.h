@@ -6,10 +6,10 @@
 struct Rational{
     Rational(int numerator = 0, int denominator = 1);
 
-    void add(Rational rational);
-    void sub(Rational rational);
-    void mul(Rational rational);
-    void div(Rational rational);
+    void add(Rational const & rational);
+    void sub(Rational const & rational);
+    void mul(Rational const & rational);
+    void div(Rational const & rational);
 
     void reduce();
 
@@ -30,7 +30,7 @@ struct Rational{
     friend std::istream& operator >> (std::istream &, Rational &);
 
 private:
-    int gcd (int a, int b);
+    int gcd (int const & a, int const & b);
 
 private:
     int numerator_;

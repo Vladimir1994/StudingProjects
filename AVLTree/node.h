@@ -6,15 +6,14 @@ class Node
 public:
     Node(int key);
     ~Node();
-    Node * Insert(int key);
-    Node * Find(int key);
-    Node * Remove(int key);
-    Node * RemoveAll();
+    Node * Insert(const int & key);
+    Node * Find(const int & key);
+    Node * Remove(const int & key);
 
 private:
     unsigned char height();
-    int bfactor();
-    void fixheight();
+    int bFactor();
+    void FixHeight();
 
     Node * left();
     Node * right();
@@ -24,8 +23,8 @@ private:
     Node * RotateRight();
     Node * RotateLeft();
     Node * Balance();
-    Node * Findmin();
-    Node * Removemin();
+    Node * FindMin();
+    Node * RemoveMin();
 
 private:
     int key_;

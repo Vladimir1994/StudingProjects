@@ -14,18 +14,18 @@ class CommandManager : public QObject
 
 public:  
     ~CommandManager();
-    QString Execute(QString command_name, QStringList arguments);
+    QString Execute(const QString & commandName, const QStringList & arguments);
     QString UnExecute();
     QString ReExecute();
 
     template<typename T>
     void AddCommand(const QString & id);
 
-    Q_INVOKABLE QString receive(QString cmd);
+    Q_INVOKABLE QString receive(const QString & cmd);
     static CommandManager& getInstance();
 
-    CommandManager(const CommandManager&) = delete;
-    CommandManager& operator = (const CommandManager&) = delete;
+    CommandManager(const CommandManager &) = delete;
+    CommandManager& operator = (const CommandManager &) = delete;
 
 private:
     explicit CommandManager(QObject *parent = 0);

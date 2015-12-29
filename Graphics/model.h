@@ -8,7 +8,7 @@
 #include <cstdlib>
 
 #include "iobserver.h"
-#include "abstractfunctor.h"
+#include "functor.h"
 
 class Model : public QObject
 {
@@ -18,11 +18,11 @@ public:
     static Model& getInstance();
     ~Model();
 
-    Model(const Model&) = delete;
-    Model& operator = (const Model&) = delete;
+    Model(const Model &) = delete;
+    Model& operator = (const Model &) = delete;
 
-    void getData(QVector<double> &data, size_t data_idx) const;
-    void addData(AbstractFunctor * fnc);
+    void getData(QVector<double> & data, const size_t & data_idx) const;
+    void addData(Functor * fnc);
     void startDataGenerate();
 
     void addObserver(IObserver & ref);
@@ -30,7 +30,7 @@ public:
 
 private:
     QVector<QVector<double> > mdl_;
-    QVector<AbstractFunctor * > functors_;
+    QVector<Functor * > functors_;
     std::list<IObserver * > observers_;
     QTimer *timer_;
     size_t columnCount_;

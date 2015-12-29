@@ -1,17 +1,17 @@
-#ifndef CUBICFUNCTOR_H
-#define CUBICFUNCTOR_H
+#ifndef SINFUNCTORONE_H
+#define SINFUNCTORONE_H
 
 #include <math.h>
-#include "abstractfunctor.h"
+#include "functor.h"
 
-class SinFunctorOne : public AbstractFunctor
+class SinFunctorOne : public Functor
 {
 public:
-    double operator()(double val)
+    double operator()(const double & val)
     {
         return sin(val);
     }
     ~SinFunctorOne() {}
 };
 
-#endif // CUBICFUNCTOR_H
+#endif // SINFUNCTORONE_H

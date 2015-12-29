@@ -10,7 +10,7 @@ protected:
 
 public:
     virtual ~Context() {}
-    virtual double useStrategy(double arg) = 0;
+    virtual double useStrategy(const double & arg) = 0;
     virtual void setStrategy(Functor * f) = 0;
 };
 

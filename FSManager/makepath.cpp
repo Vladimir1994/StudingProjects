@@ -1,7 +1,7 @@
 #include "makepath.h"
 #include "QStringList"
 
-MakePath::MakePath() : Command(1), first_created_dir_("") {}
+MakePath::MakePath() : Command(1), firstCreatedDir_("") {}
 
 bool MakePath::Execute(QString &log) {
 
@@ -12,7 +12,7 @@ bool MakePath::Execute(QString &log) {
         dirList.pop_back();
     }
     dirList.push_back(LastFolder);
-    first_created_dir_ = dirList.join("/");
+    firstCreatedDir_ = dirList.join("/");
 
     if(QDir(args_[0]).exists()) {
         log = "The path " + args_[0] + " already exists.";
@@ -29,16 +29,16 @@ bool MakePath::Execute(QString &log) {
 }
 
 bool MakePath::UnExecute(QString &log) {
-    if(!QDir(first_created_dir_).exists()) {
-        log = "The directory " + first_created_dir_ +  " has been already removed.";
+    if(!QDir(firstCreatedDir_).exists()) {
+        log = "The directory " + firstCreatedDir_ +  " has been already removed.";
         return false;
     }
-    if(QDir(first_created_dir_).removeRecursively()) {
-        log = "The directory " + first_created_dir_ + " is successfully removed.";
+    if(QDir(firstCreatedDir_).removeRecursively()) {
+        log = "The directory " + firstCreatedDir_ + " is successfully removed.";
         return true;
     }
     else {
-        log = "Can not remove directory " + first_created_dir_ +  ".";
+        log = "Can not remove directory " + firstCreatedDir_ +  ".";
         return false;
     }
 }

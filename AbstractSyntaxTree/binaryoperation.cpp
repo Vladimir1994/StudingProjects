@@ -3,7 +3,7 @@
 #include "transformer.h"
 
 BinaryOperation::BinaryOperation(Expression const *left, int op, Expression const *right)
-    : left_(left), op_(op), right_(right)
+    : left_(left), right_(right), op_(op)
 { assert(left_ && right_); }
 
 BinaryOperation::~BinaryOperation()

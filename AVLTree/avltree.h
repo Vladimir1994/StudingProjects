@@ -8,9 +8,10 @@ class AVLTree
 public:
     AVLTree(int firstKey = 0);
     ~AVLTree();
-    bool contains(int key);
-    bool remove(int key);
-    bool insert(int key);
+
+    bool contains(const int & key) const;
+    bool remove(const int & key);
+    bool insert(const int & key);
 
 private:
     Node * root_;

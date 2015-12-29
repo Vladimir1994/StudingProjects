@@ -2,14 +2,14 @@
 #define SINFUNCTORTHREE_H
 
 #include <math.h>
-#include "abstractfunctor.h"
+#include "functor.h"
 
-class SinFunctorThree : public AbstractFunctor
+class SinFunctorThree : public Functor
 {
 public:
-    double operator()(double val)
+    double operator()(const double & val)
     {
-        return sin(2*val);
+        return sin(2 * val);
     }
     ~SinFunctorThree() {}
 };

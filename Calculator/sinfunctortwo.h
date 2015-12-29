@@ -7,9 +7,9 @@
 class SinFunctorTwo : public Functor
 {
 public:
-    double operator()(double val)
+    double operator()(const double & val)
     {
-        return sin(val/3);
+        return sin(val / 3);
     }
     ~SinFunctorTwo() {}
 };

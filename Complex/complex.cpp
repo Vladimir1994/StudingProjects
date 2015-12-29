@@ -40,7 +40,7 @@ Complex& Complex::operator /= (const Complex &c){
 }
 
 std::ostream & operator <<(std::ostream & out, Complex const & c) {
-        out << c.real << " + i*" << c.img;
+    out << c.real << " + i*" << c.img;
     return out;
 }
 

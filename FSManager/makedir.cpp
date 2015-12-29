@@ -3,7 +3,7 @@
 
 MakeDir::MakeDir() : Command(1) {}
 
-bool MakeDir::Execute(QString &log) {
+bool MakeDir::Execute(QString & log) {
     qDebug() << args_[0];
     if(QDir(args_[0]).exists()) {
         log = "The directory " + args_[0] + " already exists.";
@@ -19,7 +19,7 @@ bool MakeDir::Execute(QString &log) {
     }
 }
 
-bool MakeDir::UnExecute(QString &log) {
+bool MakeDir::UnExecute(QString & log) {
     if(!QDir(args_[0]).exists()) {
         log = "The directory " + args_[0] +  " has been already removed.";
         return false;

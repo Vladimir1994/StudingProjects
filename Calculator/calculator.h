@@ -7,7 +7,7 @@ class Calculator: public Context
 {
 public:
     ~Calculator() {}
-    virtual double useStrategy(double arg) override;
+    virtual double useStrategy(const double & arg) override;
     virtual void setStrategy(Functor * f) override;
 };
 

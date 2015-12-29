@@ -21,13 +21,13 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     qcustomplot.h \
-    abstractfunctor.h \
     sinfunctorone.h \
     sinfunctortwo.h \
     sinfunctorthree.h \
     model.h \
     iobserver.h \
-    plotholder.h
+    plotholder.h \
+    functor.h
 
 FORMS    += mainwindow.ui
 CONFIG += c++11

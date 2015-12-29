@@ -24,13 +24,13 @@ Model::~Model() {
     }
 }
 
-void Model::getData(QVector<double> &data, size_t data_idx) const {
+void Model::getData(QVector<double> & data, const size_t & data_idx) const {
     if(data_idx < columnCount_) {
         data = mdl_[data_idx];
     }
 }
 
-void Model::addData(AbstractFunctor * fnc) {
+void Model::addData(Functor * fnc) {
     functors_.append(fnc);
     columnCount_++;
     mdl_[columnCount_ - 1].append((*functors_[columnCount_ - 2])(0));

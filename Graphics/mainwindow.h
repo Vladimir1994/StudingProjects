@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow * ui;
     QList<IObserver *> obsList_;
 };
 

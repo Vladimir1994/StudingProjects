@@ -22,10 +22,10 @@ CommandManager& CommandManager::getInstance() {
     return instance;
 }
 
-QString CommandManager::Execute(QString command_name, QStringList arguments) {
-    if(!AvaliableCommands.contains(command_name))
-        return "This command " + command_name + " does not exist.";
-    AbstractFactory * factory = * AvaliableCommands.find(command_name);
+QString CommandManager::Execute(const QString & commandName, const QStringList & arguments) {
+    if(!AvaliableCommands.contains(commandName))
+        return "This command " + commandName + " does not exist.";
+    AbstractFactory * factory = * AvaliableCommands.find(commandName);
     Command * cmd_ = factory->create();
     bool check = cmd_->SetArgs(arguments);
     if(!check)
@@ -65,7 +65,7 @@ QString CommandManager::ReExecute() {
     return logMessage;
 }
 
-QString CommandManager::receive(QString cmd) {
+QString CommandManager::receive(const QString & cmd) {
     QStringList splitCmd = cmd.split(" ");
     QString cmdName = splitCmd.first();
     splitCmd.pop_front();

@@ -4,22 +4,23 @@
 #include <cstdlib>
 #include <iostream>
 
-class Binary_Heap {
+class BinaryHeap {
 public:
-    Binary_Heap();
-    Binary_Heap(Binary_Heap const&);
-    void insert(int);
+    BinaryHeap();
+    BinaryHeap(BinaryHeap const &);
+    ~BinaryHeap();
+
+    void insert(const int &);
     int extract();
     size_t size() const;
-    friend std::ostream & operator << (std::ostream &, Binary_Heap const &);
-    ~Binary_Heap();
+    friend std::ostream & operator << (std::ostream &, BinaryHeap const &);
 
 private:
-    size_t memory_size_;
+    size_t capacity_;
     size_t size_;
     int *data_;
-    void sift_up();
-    void sift_down();
+    void SiftUp();
+    void SiftDown();
 
 };
 
