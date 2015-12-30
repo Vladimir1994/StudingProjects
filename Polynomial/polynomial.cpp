@@ -13,6 +13,7 @@ string Polynomial::getPoly() const {
 }
 
 void Polynomial::setPoly(const string & poly) {
+    polyMap_.clear();
     if(!poly.empty())
         ParsePoly(poly);
 }
