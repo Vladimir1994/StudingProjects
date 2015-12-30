@@ -9,7 +9,7 @@ string Polynomial::getPoly() const {
     if(!polyMap_.empty())
         return PolyToString();
     else
-        return "";
+        return "0";
 }
 
 void Polynomial::setPoly(const string & poly) {

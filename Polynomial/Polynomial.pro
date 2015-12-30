@@ -14,4 +14,3 @@ SOURCES += main.cpp \
 HEADERS += \
     polynomial.h
 
-SUBDIRS += tests/TestPolynomial
