@@ -6,9 +6,9 @@ class Node
 public:
     Node(int key);
     ~Node();
-    Node * Insert(const int & key);
-    Node * Find(const int & key);
-    Node * Remove(const int & key);
+    Node * Insert(int key);
+    const Node * Find(int key) const;
+    Node * Remove(int key);
 
 private:
     unsigned char height();

@@ -6,7 +6,7 @@
 class Stack {
 public:
     Stack();
-    void push(const int &);
+    void push(int);
     int pop();
     void show();
     void MaxToTop();

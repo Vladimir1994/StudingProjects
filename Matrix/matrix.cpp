@@ -96,7 +96,7 @@ void Matrix::print() const {
     }
 }
 
-void Matrix::initMatrix(const int & length, const int & height, const int & val) {
+void Matrix::initMatrix(int length, int height, int val) {
     length_ = length;
     height_ = height;
 

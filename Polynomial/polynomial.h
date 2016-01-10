@@ -8,12 +8,14 @@
 
 using namespace std;
 
+class WrongFormatException {};
+
 class Polynomial
 {
 public:
-    Polynomial(const string & poly = "");
+    Polynomial(const string & poly = "", const string & varSymbol = "x") throw(WrongFormatException);
     string getPoly() const;
-    void setPoly(const string & poly);
+    void setPoly(const string & poly) throw(WrongFormatException);
 
     const Polynomial & operator = (const Polynomial & p);
     Polynomial & operator += (const Polynomial & p);
@@ -27,10 +29,13 @@ public:
 
 private:
     map<unsigned int, int> polyMap_;
+    string varSymbol_;
 
 private:
-    void ParsePoly(const string & polynomial);
+    void ParsePoly(const string & polynomial) throw(WrongFormatException);
     string PolyToString() const;
+    bool isStringPolyElement(const string & ps);
+
 };
 
 Polynomial operator + (Polynomial const & p1, Polynomial const & p2);

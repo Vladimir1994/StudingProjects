@@ -11,9 +11,9 @@ public:
     Set();
     Set(Set const &);
     size_t size() const;
-    bool Insert(const int &);
-    bool Erase(const int &);
-    bool Contains(const int &);
+    bool Insert(int);
+    bool Erase(int);
+    bool Contains(int);
     void Union(Set const &);
     void Intersection(Set const &);
     void Complement(Set const &);

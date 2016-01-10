@@ -9,7 +9,7 @@ Node::~Node() {
         delete left_;
 }
 
-Node * Node::Insert(const int & key) {
+Node * Node::Insert(int key) {
     if(!this)
         return new Node(key);
     if(key < key_)
@@ -19,7 +19,7 @@ Node * Node::Insert(const int & key) {
     return this->Balance();
 }
 
-Node * Node::Find(const int & key) {
+const Node * Node::Find(int key) const {
     if(!this) return 0;
 
     if(key < key_)
@@ -30,7 +30,7 @@ Node * Node::Find(const int & key) {
         return this;
 }
 
-Node * Node::Remove(const int & key) {
+Node * Node::Remove(int key) {
     if(!this) return 0;
     if(key < key_)
         left_ = left_->Remove(key);

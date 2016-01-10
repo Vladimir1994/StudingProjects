@@ -9,7 +9,7 @@ AVLTree::~AVLTree() {
     delete root_;
 }
 
-bool AVLTree::contains(const int & key) const {
+bool AVLTree::contains(int key) const {
     if(root_->Find(key))
         return true;
     else
@@ -17,7 +17,7 @@ bool AVLTree::contains(const int & key) const {
 }
 
 
-bool AVLTree::insert(const int & key) {
+bool AVLTree::insert(int key) {
     if(root_->Find(key))
         return false;
     else {
@@ -26,7 +26,7 @@ bool AVLTree::insert(const int & key) {
     }
 }
 
-bool AVLTree::remove(const int &key) {
+bool AVLTree::remove(int key) {
     if(root_->Find(key)) {
         root_->Remove(key);
         return true;

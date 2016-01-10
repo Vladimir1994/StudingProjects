@@ -8,14 +8,17 @@ public:
     MyString(const char * str = "");
     MyString(size_t n, char c);
 
-    MyString(MyString const & obj);
+    MyString(const MyString & str);
     MyString & operator = (const MyString & str);
+
+    MyString(MyString && str);
+    MyString & operator = (MyString && str);
 
     ~MyString();
 
     size_t size() const;
-    char const  & at(const size_t & idx) const;
-    char & at(const size_t & idx);
+    char const  & at(size_t idx) const;
+    char & at(size_t idx);
     const char * c_str() const;
     int compare(const MyString & str) const;
     void append(const MyString & str);

@@ -17,7 +17,7 @@ BinaryHeap::BinaryHeap(BinaryHeap const & heap) :
     }
 }
 
-void BinaryHeap::insert(const int & value) {
+void BinaryHeap::insert(int value) {
     if(size_ == capacity_) {
         capacity_ *= 2;
         int * new_data = new int[capacity_];

@@ -19,7 +19,7 @@ private:
     int height_;
     double ** matrix_;
 private:
-    void initMatrix(const int & length, const int & height, const int & val = 0);
+    void initMatrix(int length, int height, int val = 0);
 };
 
 #endif // MATRIX_H

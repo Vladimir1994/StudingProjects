@@ -4,7 +4,7 @@
 class item
 {
 public:
-    item(int value = 0, item *previous = 0, item *next = 0);
+    item(int value = 0, item * previous = 0, item * next = 0);
     int get_value() const;
     item* get_previous() const;
     item* get_next() const;

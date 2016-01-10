@@ -14,7 +14,7 @@ public:
     ~Array();
 
     size_t size() const;
-    T & operator[](const size_t & idx) const;
+    T & operator[](size_t idx) const;
 
 private:
     size_t size_;

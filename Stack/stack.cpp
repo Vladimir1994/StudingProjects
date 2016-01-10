@@ -5,7 +5,7 @@ using namespace std;
 
 Stack::Stack() : head_(0) {}
 
-void Stack::push(const int & val) {
+void Stack::push(int val) {
     if(head_ == 0)
     {
         item *it = new item(val);

@@ -13,14 +13,34 @@ private slots:
     void equal();
     void plus();
     void minus();
-    void miltiplicate();
+    void multiplicate();
     void derivative();
 };
 
 void TestPolynomial::getPoly() {
     std::string polyString = "-x^2+3*x-7";
     Polynomial poly(polyString);
+
     QCOMPARE(poly.getPoly(), polyString);
+
+    std::string polyStringTwo = "-x^2+3x-7";
+    poly.setPoly(polyStringTwo);
+
+    QCOMPARE(poly.getPoly(), polyString);
+
+    std::string polyStringThree = "-x2+3*x-7";
+    poly.setPoly(polyStringThree);
+
+    QCOMPARE(poly.getPoly(), polyString);
+
+    std::string polyStringOne = "-x2+3x-7";
+    poly.setPoly(polyStringOne);
+
+    QCOMPARE(poly.getPoly(), polyString);
+
+    Polynomial polyOne("-y2+3y-7", "y");
+
+    QCOMPARE(polyOne.getPoly(), string("-y^2+3*y-7"));
 }
 
 void TestPolynomial::setPoly() {
@@ -28,6 +48,7 @@ void TestPolynomial::setPoly() {
     Polynomial poly(polyStringOne);
     std::string polyStringTwo = "-2*x^2+4*x-37";
     poly.setPoly(polyStringTwo);
+
     QCOMPARE(poly.getPoly(), polyStringTwo);
 }
 
@@ -80,7 +101,7 @@ void TestPolynomial::minus() {
     QCOMPARE((polyTwo - polyOne).getPoly(), std::string("5*x^3-12*x^2+4*x-37"));
 }
 
-void TestPolynomial::miltiplicate() {
+void TestPolynomial::multiplicate() {
     std::string polyStringOne = "-x^2+3*x-7";
     Polynomial polyOne(polyStringOne);
 

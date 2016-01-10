@@ -30,7 +30,7 @@ size_t Set::size() const {
     return size_;
 }
 
-bool Set::Insert(const int &value) {
+bool Set::Insert(int value) {
     item *it = first_;
     while(it != 0 && it->get_value() > value) {
         it = it->get_next();
@@ -66,7 +66,7 @@ bool Set::Insert(const int &value) {
     }
 }
 
-bool Set::Erase(const int &value) {
+bool Set::Erase(int value) {
     item *it = first_;
     while(it != 0 && it->get_value() != value) {
         it = it->get_next();
@@ -102,7 +102,7 @@ bool Set::Erase(const int &value) {
     }
 }
 
-bool Set::Contains(const int &value) {
+bool Set::Contains(int value) {
     item *it = first_;
     while(it != 0 && it->get_value() != value) {
         it = it->get_next();

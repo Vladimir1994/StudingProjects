@@ -4,7 +4,7 @@
 #include <cstring>
 
 
-MyString::MyString(const char *str) {
+MyString::MyString(const char * str) {
     size_ = strlen(str);
     str_ = new char[size_];
     std::strcpy(str_, str);
@@ -19,16 +19,25 @@ MyString::MyString(size_t n, char c) {
     str_[n] = '\0';
 }
 
-MyString::MyString(MyString const &obj) {
-    size_ = obj.size();
+MyString::MyString(const MyString & str) {
+    size_ = str.size();
     str_ = new char[size_ + 1];
-    std::strcpy(str_, obj.str_);
+    std::strcpy(str_, str.str_);
     this->str_[size_ + 1] = '\0';
 }
 
-MyString & MyString::operator = (const MyString &str) {
+MyString & MyString::operator = (const MyString & str) {
     if(this->str_ != str.str_)
         MyString(str).swap(*this);
+    return *this;
+}
+
+MyString::MyString(MyString && str): str_(str.str_) {
+    str.str_ = 0;
+}
+
+MyString & MyString::operator=(MyString && str) {
+    str.swap(*this);
     return *this;
 }
 
@@ -40,11 +49,11 @@ size_t MyString::size() const {
     return size_;
 }
 
-char const & MyString::at(const size_t & idx) const {
+char const & MyString::at(size_t idx) const {
         return str_[idx];
 }
 
-char & MyString::at(const size_t & idx){
+char & MyString::at(size_t idx){
         return str_[idx];
 }
 
@@ -53,12 +62,12 @@ const char * MyString::c_str() const {
     return str;
 }
 
-int MyString::compare(const MyString &str) const {
+int MyString::compare(const MyString & str) const {
     return std::strcmp(this->c_str(), str.c_str());
 }
 
 void MyString::append(const MyString &str) {
-    char *tmp = new char[size_+1];
+    char *tmp = new char[size_ + 1];
     std::strcpy(tmp, str_);
     delete [] str_;
     str_ = new char[size_ + str.size() + 1];

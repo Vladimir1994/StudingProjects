@@ -75,7 +75,7 @@ size_t Array<T>::size() const {
 }
 
 template <typename T>
-T & Array<T>::operator [](const size_t & idx) const {
+T & Array<T>::operator [](size_t idx) const {
     return arr[idx];
 }
 

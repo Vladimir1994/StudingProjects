@@ -4,8 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    mystring.cpp
+    smallallocator.cpp
 
 HEADERS += \
-    mystring.h
+    smallallocator.h
 

@@ -10,7 +10,7 @@ public:
     BinaryHeap(BinaryHeap const &);
     ~BinaryHeap();
 
-    void insert(const int &);
+    void insert(int);
     int extract();
     size_t size() const;
     friend std::ostream & operator << (std::ostream &, BinaryHeap const &);
