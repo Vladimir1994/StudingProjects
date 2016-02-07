@@ -5,10 +5,11 @@
 #include <map>
 #include <list>
 #include <string>
+#include <exception>
 
 using namespace std;
 
-class WrongFormatException {};
+class WrongFormatException : public exception {};
 
 class Polynomial
 {
