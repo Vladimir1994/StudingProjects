@@ -14,9 +14,9 @@ class WrongFormatException : public exception {};
 class Polynomial
 {
 public:
-    Polynomial(const string & poly = "", const string & varSymbol = "x") throw(WrongFormatException);
+    Polynomial(const string & poly = "", const string & varSymbol = "x");
     string getPoly() const;
-    void setPoly(const string & poly) throw(WrongFormatException);
+    void setPoly(const string & poly);
 
     const Polynomial & operator = (const Polynomial & p);
     Polynomial & operator += (const Polynomial & p);
@@ -33,7 +33,7 @@ private:
     string varSymbol_;
 
 private:
-    void ParsePoly(const string & polynomial) throw(WrongFormatException);
+    void ParsePoly(const string & polynomial);
     string PolyToString() const;
     bool isStringPolyElement(const string & ps);
 

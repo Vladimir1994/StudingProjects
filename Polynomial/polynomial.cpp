@@ -2,8 +2,8 @@
 #include "string.h"
 #include "cstdlib"
 
-Polynomial::Polynomial(const string & poly, const string & varSymbol)
-    throw(WrongFormatException): varSymbol_(varSymbol) {
+Polynomial::Polynomial(const string & poly, const string & varSymbol):
+    varSymbol_(varSymbol) {
     if(!poly.empty())
         ParsePoly(poly);
 }
@@ -15,7 +15,7 @@ string Polynomial::getPoly() const {
         return "0";
 }
 
-void Polynomial::setPoly(const string & poly) throw(WrongFormatException) {
+void Polynomial::setPoly(const string & poly) {
     polyMap_.clear();
     if(!poly.empty())
         ParsePoly(poly);
@@ -98,7 +98,7 @@ istream & operator >> (istream & in, Polynomial & p) {
     return in;
 }
 
-void Polynomial::ParsePoly(const string & polynomial) throw(WrongFormatException) {
+void Polynomial::ParsePoly(const string & polynomial) {
     if(polynomial.empty())
         return;
 
@@ -113,7 +113,8 @@ void Polynomial::ParsePoly(const string & polynomial) throw(WrongFormatException
         if(foundCur == string::npos) {
             polynomialElement = polynomial.substr(foundPrev,
                 polynomial.length() - foundCur);
-            if(!polynomialElement.empty() && isStringPolyElement(polynomialElement)) {
+            if(!polynomialElement.empty() &&
+               isStringPolyElement(polynomialElement)) {
                 polyList.push_back(polynomialElement);
                 break;
             }
@@ -124,7 +125,8 @@ void Polynomial::ParsePoly(const string & polynomial) throw(WrongFormatException
         polynomialElement = polynomial.substr(foundPrev,
             foundCur - foundPrev);
 
-        if(!polynomialElement.empty() && isStringPolyElement(polynomialElement))
+        if(!polynomialElement.empty() &&
+           isStringPolyElement(polynomialElement))
             polyList.push_back(polynomialElement);
         else
             throw WrongFormatException();
@@ -249,11 +251,14 @@ bool Polynomial::isStringPolyElement(const string & ps) {
             ps.length() - varSympolIdx - varSymbol_.length());
 
         for(size_t i = 0; i < coeffStr.length(); i++) {
-            if(i == 0 && (coeffStr[i] == '+' || coeffStr[i] == '-' || isdigit(coeffStr[i])))
+            if(i == 0 && (coeffStr[i] == '+' || coeffStr[i] == '-' ||
+                          isdigit(coeffStr[i])))
                 continue;
-            else if(i != coeffStr.length() - 1 && i != 0 && isdigit(coeffStr[i]))
+            else if(i != coeffStr.length() - 1 && i != 0 &&
+                    isdigit(coeffStr[i]))
                 continue;
-            else if(i == coeffStr.length() - 1 && (coeffStr[i] == '*' || isdigit(coeffStr[i])))
+            else if(i == coeffStr.length() - 1 &&
+                    (coeffStr[i] == '*' || isdigit(coeffStr[i])))
                 continue;
             else
                 return false;
