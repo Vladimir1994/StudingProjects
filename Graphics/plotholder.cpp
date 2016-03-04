@@ -12,20 +12,20 @@ void PlotHolder::setPlot(QCustomPlot * cp) {
     cp_ = cp;
 }
 
-void PlotHolder::addCurve(const int & curve_idx) {
-    if(!curve_idx_.contains(curve_idx))
-        curve_idx_.append(curve_idx);
+void PlotHolder::addCurve(const int & curveIdx) {
+    if(!curveIdx_.contains(curveIdx))
+        curveIdx_.append(curveIdx);
 }
 
-void PlotHolder::removeCurve(const int & curve_idx) {
-    foreach(int i, curve_idx_) {
-        if(curve_idx_[i] == curve_idx)
-            curve_idx_.remove(i);
+void PlotHolder::removeCurve(const int & curveIdx) {
+    foreach(int i, curveIdx_) {
+        if(curveIdx_[i] == curveIdx)
+            curveIdx_.remove(i);
     }
 }
 
 void PlotHolder::handleEvent(const Model & mdl) {
-    if(cp_ == 0 || curve_idx_.length() == 0)
+    if(cp_ == 0 || curveIdx_.length() == 0)
         return;
 
     QVector<double> x;
@@ -33,10 +33,10 @@ void PlotHolder::handleEvent(const Model & mdl) {
     cp_->addGraph();
     if(cp_->graphCount() > 0)
         cp_->clearGraphs();
-    for(int i = 0; i < curve_idx_.length(); i++) {
+    for(int i = 0; i < curveIdx_.length(); i++) {
         cp_->addGraph();
         QVector<double> y;
-        mdl.getData(y, curve_idx_[i]);
+        mdl.getData(y, curveIdx_[i]);
         cp_->graph(i)->setData(x, y);
     }
     cp_->replot();

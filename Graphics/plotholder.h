@@ -12,13 +12,13 @@ public:
     PlotHolder(QCustomPlot * cp = 0);
     virtual ~PlotHolder() {}
     void setPlot(QCustomPlot * cp);
-    void addCurve(const int & curve_idx);
-    void removeCurve(const int & curve_idx);
+    void addCurve(const int & curveIdx);
+    void removeCurve(const int & curveIdx);
 
     virtual void handleEvent(const Model & mdl) override;
 
 private:
-    QVector<int> curve_idx_;
+    QVector<int> curveIdx_;
     QCustomPlot * cp_;
 
 };

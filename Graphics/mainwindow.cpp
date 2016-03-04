@@ -2,9 +2,9 @@
 #include "ui_mainwindow.h"
 
 #include "model.h"
-#include "sinfunctorone.h"
-#include "sinfunctortwo.h"
-#include "sinfunctorthree.h"
+#include "generatorone.h"
+#include "generatortwo.h"
+#include "generatorthree.h"
 #include "plotholder.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -27,9 +27,9 @@ MainWindow::MainWindow(QWidget *parent) :
     Model::getInstance().addObserver(*holder_2);
     Model::getInstance().addObserver(*holder_3);
 
-    Model::getInstance().addData(new SinFunctorOne());
-    Model::getInstance().addData(new SinFunctorTwo());
-    Model::getInstance().addData(new SinFunctorThree());
+    Model::getInstance().addData(new GeneratorOne());
+    Model::getInstance().addData(new GeneratorTwo());
+    Model::getInstance().addData(new GeneratorThree());
 
     Model::getInstance().startDataGenerate();
 }
