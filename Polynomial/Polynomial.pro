@@ -8,9 +8,11 @@ CONFIG += console c++11
 
 TEMPLATE = app
 
-SOURCES += main.cpp \
-    polynomial.cpp
-
 HEADERS += \
     polynomial.h
+
+SOURCES += \
+    main.cpp \
+    polynomial.cpp
+
 

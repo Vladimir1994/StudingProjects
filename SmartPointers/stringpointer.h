@@ -2,16 +2,17 @@
 #define STRINGPOINTER_H
 #include <string>
 
-class StringPointer {
+class StringPointer
+{
 public:
-    StringPointer(std::string * Pointer = 0);
+    StringPointer(std::string *pointer = 0);
     ~StringPointer();
-    std::string *operator->();
+    std::string * operator->();
     operator std::string*();
 
 private:
-    std::string * strPtr;
-    bool myStringAllocated;
+    std::string *strPtr_;
+    bool myStringAllocated_;
 };
 
 #endif // STRINGPOINTER_H

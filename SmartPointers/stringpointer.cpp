@@ -1,26 +1,30 @@
 #include "stringpointer.h"
 
-StringPointer::StringPointer(std::string * Pointer): strPtr(Pointer),
-    myStringAllocated(false) {}
+StringPointer::StringPointer(std::string *pointer): strPtr_(pointer),
+    myStringAllocated_(false)
+{}
 
-StringPointer::~StringPointer() {
-    if(strPtr && myStringAllocated)
-        delete strPtr;
-    strPtr = 0;
+StringPointer::~StringPointer()
+{
+    if (strPtr_ && myStringAllocated_)
+        delete strPtr_;
+    strPtr_ = 0;
 }
 
-std::string * StringPointer::operator->() {
-    if(!strPtr) {
-        strPtr = new std::string("");
-        myStringAllocated = true;
+std::string * StringPointer::operator->()
+{
+    if (!strPtr_) {
+        strPtr_ = new std::string("");
+        myStringAllocated_ = true;
     }
-    return strPtr;
+    return strPtr_;
 }
-StringPointer::operator std::string*() {
-    if(!strPtr) {
-        strPtr = new std::string("");
-        myStringAllocated = true;
+StringPointer::operator std::string*()
+{
+    if (!strPtr_) {
+        strPtr_ = new std::string("");
+        myStringAllocated_ = true;
     }
-    return strPtr;
+    return strPtr_;
 }
 

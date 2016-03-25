@@ -3,15 +3,16 @@
 
 #include "expression.h"
 
-struct ScopedPtr
+class ScopedPtr
 {
+public:
     explicit ScopedPtr(Expression *ptr = 0);
     ~ScopedPtr();
     Expression * get() const;
     Expression * release();
-    void reset(Expression * ptr = 0);
-    Expression& operator*() const;
-    Expression* operator->() const;
+    void reset(Expression *ptr = 0);
+    Expression & operator*() const;
+    Expression * operator->() const;
 
 private:
     ScopedPtr(const ScopedPtr &);

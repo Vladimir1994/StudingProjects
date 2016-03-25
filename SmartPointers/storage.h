@@ -3,18 +3,19 @@
 
 #include "expression.h"
 
-struct Storage
+class Storage
 {
-    Storage(Expression * ptr);
+public:
+    Storage(Expression *ptr);
     ~Storage();
     void inc();
     void dec();
     int count();
-    Expression* get() const;
+    Expression * get() const;
 
 private:
     int counter_;
-    Expression * ptr_;
+    Expression *ptr_;
 };
 
 #endif // STORAGE

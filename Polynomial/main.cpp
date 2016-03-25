@@ -1,4 +1,5 @@
 #include "polynomial.h"
+
 #include <iostream>
 
 using namespace std;
@@ -18,7 +19,7 @@ int main()
         cout << "Sum: " + (p1 + p2).getPoly() << endl;
 
     }
-    catch(WrongFormatException & e) {
+    catch(WrongFormatException &e) {
         cout << "Wrong format." << endl;
         return -1;
     }

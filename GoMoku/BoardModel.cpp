@@ -1,130 +1,134 @@
 #include "BoardModel.h"
 
-BoardModel::BoardModel():FIELD_SIZE(10),WIN_SIZE(5){
-	for(int i = 0; i < FIELD_SIZE; i++){
-		for(int j = 0; j < FIELD_SIZE; j++){
-			board[i][j] = NO_SIGN;
-		};
-	};
+BoardModel::BoardModel():fieldSize_(10),winSize_(5)
+{
+    for (int i = 0; i < fieldSize_; i++) {
+        for (int j = 0; j < fieldSize_; j++)
+            board_[i][j] = noSign;
+    }
 }
 
-bool BoardModel::MakeMove(const int &x, const int &y, const signtype &sign){
-    if ((x < FIELD_SIZE) && (x >= 0) && (y < FIELD_SIZE) &&
-        (y >= 0) && (board[x][y] == NO_SIGN)){
-		board[x][y] = sign;
+bool BoardModel::makeMove(const int &x, const int &y, const signtype &sign)
+{
+    if ((x < fieldSize_) && (x >= 0) && (y < fieldSize_) &&
+        (y >= 0) && (board_[x][y] == noSign)) {
+        board_[x][y] = sign;
 		return true;
-	}
-	else{
+    } else {
 		return false;
-	};
+    }
 }
 
-wintype BoardModel::isWin(const int &LAST_MOVE_X, const int &LAST_MOVE_O){
-	signtype LAST_MOVE = board[LAST_MOVE_X][LAST_MOVE_O];
-	//поиск по горизонтали
+wintype BoardModel::isWin(const int &lastMoveX, const int &lastMoveO)
+{
+    signtype lastMove = board_[lastMoveX][lastMoveO];
+
 	int count = 1;
 	int sum = 1;
-    while(((LAST_MOVE_X + count) < FIELD_SIZE) &&
-        (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X + count][LAST_MOVE_O])){
+    while (((lastMoveX + count) < fieldSize_) &&
+            (board_[lastMoveX][lastMoveO]
+             == board_[lastMoveX + count][lastMoveO])) {
 		count++;
 		sum++;
-	};
+    }
+
 	count = 1;
-    while(((LAST_MOVE_X - count) >= 0) &&
-        (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X - count][LAST_MOVE_O])){
+    while (((lastMoveX - count) >= 0) &&
+             (board_[lastMoveX][lastMoveO]
+             == board_[lastMoveX - count][lastMoveO])) {
 		count++;
 		sum++;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _X_)){
-		return X_WIN;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _O_)){
-		return O_WIN;
-	};
-	//по вертикали
-	count = 1;
-	sum = 1;
-    while(((LAST_MOVE_O + count) < FIELD_SIZE) &&
-        (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X][LAST_MOVE_O + count])){
-		count++;
-		sum++;
-	};
-	count = 1;
-    while(((LAST_MOVE_O - count) >= 0) &&
-        (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X][LAST_MOVE_O - count])){
-		count++;
-		sum++;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _X_)){
-		return X_WIN;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _O_)){
-		return O_WIN;
-	};
-	//по диагонали 1
+    }
+    if ((sum >= winSize_) && (lastMove == x))
+        return xWin;
+    if ((sum >= winSize_) && (lastMove == o))
+        return oWin;
+
 	count = 1;
 	sum = 1;
-    while(((LAST_MOVE_O + count) < FIELD_SIZE) && ((LAST_MOVE_X + count) < FIELD_SIZE)
-        && (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X + count][LAST_MOVE_O + count])){
+    while (((lastMoveO + count) < fieldSize_) &&
+            (board_[lastMoveX][lastMoveO]
+            == board_[lastMoveX][lastMoveO + count])) {
 		count++;
 		sum++;
-	};
+    }
 	count = 1;
-    while(((LAST_MOVE_O - count) >= 0)  && ((LAST_MOVE_X -count) >= 0) &&
-        (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X - count][LAST_MOVE_O - count])){
+    while (((lastMoveO - count) >= 0) &&
+            (board_[lastMoveX][lastMoveO]
+            == board_[lastMoveX][lastMoveO - count])) {
 		count++;
 		sum++;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _X_)){
-		return X_WIN;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _O_)){
-		return O_WIN;
-	};
-	//по диагонали 2
+    }
+    if ((sum >= winSize_) && (lastMove == x))
+        return xWin;
+    if ((sum >= winSize_) && (lastMove == o))
+        return oWin;
+
 	count = 1;
 	sum = 1;
-    while(((LAST_MOVE_O - count) >= 0) && ((LAST_MOVE_X + count) < FIELD_SIZE)
-        && (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X + count][LAST_MOVE_O - count])){
+    while (((lastMoveO + count) < fieldSize_) && ((lastMoveX + count) < fieldSize_)
+           && (board_[lastMoveX][lastMoveO]
+                == board_[lastMoveX + count][lastMoveO + count])) {
 		count++;
 		sum++;
-	};
+    }
 	count = 1;
-    while(((LAST_MOVE_O - count) < FIELD_SIZE)  && ((LAST_MOVE_X - count) >= 0)
-        && (board[LAST_MOVE_X][LAST_MOVE_O] == board[LAST_MOVE_X - count][LAST_MOVE_O + count])){
+    while (((lastMoveO - count) >= 0)  && ((lastMoveX -count) >= 0) &&
+            (board_[lastMoveX][lastMoveO]
+             == board_[lastMoveX - count][lastMoveO - count])) {
 		count++;
 		sum++;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _X_)){
-		return X_WIN;
-	};
-	if((sum >= WIN_SIZE) && (LAST_MOVE == _O_)){
-		return O_WIN;
-	};
+    }
+    if ((sum >= winSize_) && (lastMove == x))
+        return xWin;
+    if ((sum >= winSize_) && (lastMove == o))
+        return oWin;
+
+	count = 1;
+	sum = 1;
+    while (((lastMoveO - count) >= 0) && ((lastMoveX + count) < fieldSize_)
+           && (board_[lastMoveX][lastMoveO]
+               == board_[lastMoveX + count][lastMoveO - count])) {
+		count++;
+		sum++;
+    }
+	count = 1;
+    while (((lastMoveO - count) < fieldSize_)  && ((lastMoveX - count) >= 0)
+           && (board_[lastMoveX][lastMoveO]
+               == board_[lastMoveX - count][lastMoveO + count])) {
+		count++;
+		sum++;
+    }
+    if ((sum >= winSize_) && (lastMove == x))
+        return xWin;
+    if ((sum >= winSize_) && (lastMove == o))
+        return oWin;
+
 	count = 0;
-	for(int i = 0; i < FIELD_SIZE; i++){
-			for(int j = 0; j < FIELD_SIZE; j++){
-				if(board[i][j] == NO_SIGN){
+    for (int i = 0; i < fieldSize_; i++) {
+            for (int j = 0; j < fieldSize_; j++) {
+                if (board_[i][j] == noSign)
 					count++;
-				};
-		};
-	};
-	if (count == 0){
-		return DRAW;
-	}
-	else{
-		return NO_WIN;
-	};
+        }
+    }
+    if (count == 0) {
+        return draw;
+    } else {
+        return noWin;
+    }
 }
 
-int BoardModel::getSize() const {
-	return FIELD_SIZE;
+int BoardModel::getSize() const
+{
+	return fieldSize_;
 }
 
-int BoardModel::getWinSize() const {
-	return WIN_SIZE;
+int BoardModel::getWinSize() const
+{
+	return winSize_;
 }
 
-signtype BoardModel::getCell(const int &x, const int &y) {
-	return board[x][y];
+signtype BoardModel::getCell(const int &x, const int &y)
+{
+    return board_[x][y];
 }

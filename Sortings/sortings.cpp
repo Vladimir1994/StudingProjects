@@ -11,12 +11,12 @@ void qsort(vector<int> & v, long l, long r) {
         while (v.at(++l_ptr) < pivot)
             while (v.at(--r_ptr) > pivot)
                 if(l_ptr == r_ptr)
-                break;
+                    break;
         if (l_ptr >= r_ptr)
             break;
         swap(v.at(l_ptr), v.at(r_ptr));
     }
-    swap(v.at(l_ptr), v.at(r));;
+    swap(v.at(l_ptr), v.at(r));
     qsort(v, l, l_ptr - 1);
     qsort(v, l_ptr + 1, r);
 }

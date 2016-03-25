@@ -1,22 +1,23 @@
 #ifndef _MODEL_
 #define _MODEL_
 
-enum signtype {_X_, _O_, NO_SIGN};
-enum wintype {X_WIN, O_WIN, DRAW, NO_WIN};
+enum signtype {x, o, noSign};
+enum wintype {xWin, oWin, draw, noWin};
 
-class BoardModel {
+class BoardModel 
+{
 public:
 	BoardModel();
-    bool MakeMove(const int &x, const int &y, const signtype &sign);
+    bool makeMove(const int &x, const int &y, const signtype &sign);
     int getSize() const;
     int getWinSize() const;
-    wintype isWin(const int &LAST_MOVE_X, const int &LAST_MOVE_O);
+    wintype isWin(const int &lastMoveX, const int &lastMoveO);
     signtype getCell(const int &x, const int &y);
 
 private:
-    const int FIELD_SIZE;
-    const int WIN_SIZE;
-    signtype board[10][10];
+    const int fieldSize_;
+    const int winSize_;
+    signtype board_[10][10];
 };
 
 #endif
