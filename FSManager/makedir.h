@@ -8,8 +8,8 @@ class MakeDir : public Command
 public:
     MakeDir();
     ~MakeDir() {}
-    bool Execute(QString &);
-    bool UnExecute(QString &);
+    bool Execute(QString &log);
+    bool UnExecute(QString &log);
 };
 
 #endif // MAKEDIR_H

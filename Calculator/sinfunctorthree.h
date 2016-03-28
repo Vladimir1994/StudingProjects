@@ -7,7 +7,7 @@
 class SinFunctorThree : public Functor
 {
 public:
-    double operator()(const double & val)
+    double operator()(const double &val)
     {
         return sin(2 * val);
     }

@@ -7,10 +7,10 @@ template <typename T>
 class Array
 {
 public:
-    Array(size_t size, const T & value = T());
+    Array(size_t size, const T &value = T());
     Array();
-    Array & operator = (const Array & A);
-    Array(const Array & A);
+    Array & operator=(const Array &A);
+    Array(const Array &A);
     ~Array();
 
     size_t size() const;
@@ -22,13 +22,13 @@ private:
 };
 
 template <typename T, class comparator>
-T minimum(Array<T> & A, comparator c);
+T minimum(Array<T> &A, comparator c);
 
 template <typename T>
-void flatten(const T & obj, std::ostream & out);
+void flatten(const T &obj, std::ostream &out);
 
 template <typename T>
-void flatten(const Array<T> & array, std::ostream & out);
+void flatten(const Array<T> &array, std::ostream &out);
 
 #include "array.tpp"
 

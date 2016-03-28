@@ -3,17 +3,20 @@
 #ifndef ITEM_H
 #define	ITEM_H
 
-class item {
-	int value_;
-	item *previous_;
-	item *next_;	
+class item
+{
 public:
-    item(int value = 0, item * previous = 0, item * next = 0);
-    int get_value() const;
-    item* get_previous() const;
-    item* get_next() const;
-    void set_previous(item * );
-    void set_next(item * );
+    item(int value = 0, item *previous = 0, item *next = 0);
+    int getValue() const;
+    item * getPrevious() const;
+    item * getNext() const;
+    void setPrevious(item *previous);
+    void setNext(item *next);
+
+private:
+    int value_;
+    item *previous_;
+    item *next_;
 };
 
 #endif	/* ITEM_H */

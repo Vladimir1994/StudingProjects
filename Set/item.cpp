@@ -1,24 +1,30 @@
 #include "item.h"
 
 item::item(int value, item *previous, item *next) :
-    value_(value), previous_(previous), next_(next) {}
+    value_(value), previous_(previous), next_(next)
+{}
 
-int item::get_value() const {
+int item::getValue() const
+{
     return value_;
 }
 
-item* item::get_previous() const {
+item * item::getPrevious() const
+{
     return previous_;
 }
 
-item* item::get_next() const {
+item * item::getNext() const
+{
     return next_;
 }
 
-void item::set_previous(item* previous) {
+void item::setPrevious(item *previous)
+{
     previous_ = previous;
 }
 
-void item::set_next(item* next) {
+void item::setNext(item *next)
+{
     next_ = next;
 }

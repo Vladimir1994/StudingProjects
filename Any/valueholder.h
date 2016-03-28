@@ -4,9 +4,10 @@
 #include "icloneable.h"
 
 template <typename T>
-class ValueHolder : ICloneable {
+class ValueHolder : ICloneable
+{
 public:
-    ValueHolder(T const & data);
+    ValueHolder(T const &data);
     ICloneable * clone() const;
 
 private:

@@ -1,8 +1,8 @@
 #include "any.h"
 
-Any::Any() : ptr_(0) { }
+Any::Any() : ptr_(0) {}
 
-Any::Any(Any const & any)
+Any::Any(Any const &any)
 {
     if(any.ptr_)
         ptr_ = any.ptr_->clone();
@@ -10,19 +10,18 @@ Any::Any(Any const & any)
         ptr_ = 0;
 }
 
-Any & Any::operator = (Any const & any)
+Any & Any::operator=(Any const &any)
 {
-    if(ptr_ != any.ptr_){
+    if (ptr_ != any.ptr_) {
         delete ptr_;
         ptr_ = 0;
         if (any.ptr_)
-        {
             ptr_ = any.ptr_->clone();
-        }
     }
     return *this;
 }
 
-Any::~Any() {
+Any::~Any()
+{
     delete ptr_;
 }

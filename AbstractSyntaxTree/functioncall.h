@@ -2,9 +2,10 @@
 #define FUNCTIONCALL_H
 
 #include "expression.h"
+
 #include <string>
 
-class FunctionCall : Expression
+class FunctionCall : public Expression
 {
 public:
     FunctionCall(std::string const &name, Expression const *arg);

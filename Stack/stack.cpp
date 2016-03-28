@@ -1,40 +1,37 @@
 #include "stack.h"
+
 #include <iostream>
 
 using namespace std;
 
-Stack::Stack() : head_(0) {}
+Stack::Stack() : head_(0)
+{}
 
-void Stack::push(int val) {
-    if(head_ == 0)
-    {
-        item *it = new item(val);
+void Stack::push(int value)
+{
+    if (head_ == 0) {
+        item *it = new item(value);
         head_ = it;
-    }
-    else
-    {
-        item *it = new item(val);
-        head_->set_next(it);
-        it->set_previous(head_);
+    } else {
+        item *it = new item(value);
+        head_->setNext(it);
+        it->setPrevious(head_);
         head_ = it;
     }
 }
 
 int Stack::pop()
 {
-    if(head_ == 0)
-    {
+    if (head_ == 0) {
         return 0;
 
-    }
-    else
-    {
-        item *it = head_ ->get_previous();
-        int val = head_->get_value();
+    } else {
+        item *it = head_->getPrevious();
+        int value = head_->getValue();
         delete head_;
         head_ = it;
-        head_->set_next(0);
-        return val;
+        head_->setNext(0);
+        return value;
     }
 }
 
@@ -42,57 +39,51 @@ void Stack::MaxToTop()
 {
     item *it = head_;
     item *it_max = head_;
-    while(it != 0)
-    {
-        if(it->get_value() > it_max->get_value())
+    while (it != 0) {
+        if (it->getValue() > it_max->getValue())
             it_max = it;
-        it = it->get_previous();
+        it = it->getPrevious();
     }
-    if(it_max != head_)
-    {
-        item *it_prev = it_max->get_previous();
-        item *it_next = it_max->get_next();
-        item *head_prev = head_->get_previous();
-        if(head_ == it_next)
-        {
-            if(it_prev != 0)
-                it_prev->set_next(head_);
-            head_->set_previous(it_prev);
-            it_max->set_next(0);
-            it_max->set_previous(head_);
-            head_->set_next(it_max);
+    if (it_max != head_) {
+        item *it_prev = it_max->getPrevious();
+        item *it_next = it_max->getNext();
+        item *head_prev = head_->getPrevious();
+        if (head_ == it_next) {
+            if (it_prev != 0)
+                it_prev->setNext(head_);
+            head_->setPrevious(it_prev);
+            it_max->setNext(0);
+            it_max->setPrevious(head_);
+            head_->setNext(it_max);
             head_ = it_max;
-        }
-        else
-        {
-            if(it_prev != 0)
-                it_prev->set_next(head_);
-            it_next->set_previous(head_);
-            head_->set_next(it_next);
-            head_->set_previous(it_prev);
-            it_max->set_next(0);
-            it_max->set_previous(head_prev);
-            head_prev->set_next(it_max);
+        } else {
+            if (it_prev != 0)
+                it_prev->setNext(head_);
+            it_next->setPrevious(head_);
+            head_->setNext(it_next);
+            head_->setPrevious(it_prev);
+            it_max->setNext(0);
+            it_max->setPrevious(head_prev);
+            head_prev->setNext(it_max);
             head_ = it_max;
         }
     }
 }
 
-void Stack::show() {
+void Stack::show()
+{
     item *it = head_;
-    while(it != 0)
-    {
-        cout << it->get_value() << ' ';
-        it = it->get_previous();
+    while (it != 0) {
+        cout << it->getValue() << ' ';
+        it = it->getPrevious();
     }
 }
 
 Stack::~Stack()
 {
-    while(head_ != 0)
-    {
+    while (head_ != 0) {
         item *it = head_;
-        head_ = head_->get_previous();
+        head_ = head_->getPrevious();
         delete it;
     }
 }

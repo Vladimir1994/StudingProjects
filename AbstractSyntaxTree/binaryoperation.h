@@ -4,7 +4,7 @@
 #include "expression.h"
 #include "scope.h"
 
-class BinaryOperation : Expression
+class BinaryOperation : public Expression
 {
 public:
     enum

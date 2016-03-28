@@ -11,6 +11,12 @@ public:
     Node * Remove(int key);
 
 private:
+    int key_;
+    unsigned char height_;
+    Node *left_;
+    Node *right_;
+
+private:
     unsigned char height();
     int bFactor();
     void FixHeight();
@@ -25,12 +31,6 @@ private:
     Node * Balance();
     Node * FindMin();
     Node * RemoveMin();
-
-private:
-    int key_;
-    unsigned char height_;
-    Node * left_;
-    Node * right_;    
 };
 
 #endif // NODE_H

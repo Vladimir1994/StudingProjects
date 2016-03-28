@@ -1,20 +1,15 @@
-/*
-* Пример использования паттерна
-* strategy.
-*/
-
-
-#include <iostream>
 #include "calculator.h"
 #include "sinfunctorone.h"
 #include "sinfunctortwo.h"
 #include "sinfunctorthree.h"
 
+#include <iostream>
+
 int main()
 {
-    Functor * f_1 = new SinFunctorOne();
-    Functor * f_2 = new SinFunctorTwo();
-    Functor * f_3 = new SinFunctorThree();
+    Functor *f_1 = new SinFunctorOne();
+    Functor *f_2 = new SinFunctorTwo();
+    Functor *f_3 = new SinFunctorThree();
 
     Calculator calc;
 

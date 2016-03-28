@@ -1,3 +1,5 @@
+#include "mystring.h"
+
 #include <cstdlib>
 #include <iostream>
 #include <cstddef>
@@ -5,9 +7,8 @@
 #include <cstring>
 #include <algorithm>
 
-#include "mystring.h"
-
-int main() {
+int main()
+{
     return 0;
 }
 

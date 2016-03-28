@@ -1,11 +1,10 @@
-#include <iostream>
-#include <fstream>
 #include "complex.h"
 
-using namespace std;
+#include <iostream>
+#include <fstream>
 
-int main(){
-
+int main()
+{
 	return 0;
 }
 

@@ -1,5 +1,6 @@
-#include <string> 
 #include "set.h"
+
+#include <string> 
 #include <iostream>
 
 int main(){

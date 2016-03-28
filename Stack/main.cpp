@@ -1,10 +1,12 @@
+#include "stack.h"
+
 #include <iostream>
 #include <conio.h>
-#include "stack.h"
 
 using namespace std;
 
-int main() {
+int main()
+{
     Stack S;
     S.push(5);
     S.show();

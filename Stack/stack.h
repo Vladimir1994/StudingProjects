@@ -3,10 +3,11 @@
 
 #include "item.h"
 
-class Stack {
+class Stack
+{
 public:
     Stack();
-    void push(int);
+    void push(int value);
     int pop();
     void show();
     void MaxToTop();
@@ -14,7 +15,6 @@ public:
 
 private:
     item *head_;
-
 };
 
 #endif // STACK_H

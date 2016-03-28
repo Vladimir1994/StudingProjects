@@ -14,18 +14,19 @@ class CommandManager : public QObject
 
 public:  
     ~CommandManager();
-    QString Execute(const QString & commandName, const QStringList & arguments);
+    QString Execute(const QString &commandName,
+                    const QStringList &arguments);
     QString UnExecute();
     QString ReExecute();
 
     template<typename T>
-    void AddCommand(const QString & id);
+    void AddCommand(const QString &id);
 
-    Q_INVOKABLE QString receive(const QString & cmd);
-    static CommandManager& getInstance();
+    Q_INVOKABLE QString receive(const QString &cmd);
+    static CommandManager & getInstance();
 
     CommandManager(const CommandManager &) = delete;
-    CommandManager& operator = (const CommandManager &) = delete;
+    CommandManager & operator = (const CommandManager &) = delete;
 
 private:
     explicit CommandManager(QObject *parent = 0);
@@ -37,7 +38,8 @@ private:
 };
 
 template<typename T>
-void CommandManager::AddCommand(const QString & id) {
+void CommandManager::AddCommand(const QString &id)
+{
     auto it = AvaliableCommands.find(id);
     if (it == AvaliableCommands.end())
         AvaliableCommands[id] = new Factory<T>();

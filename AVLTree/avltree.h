@@ -14,7 +14,7 @@ public:
     bool insert(int key);
 
 private:
-    Node * root_;
+    Node *root_;
 };
 
 #endif // AVLTREE_H

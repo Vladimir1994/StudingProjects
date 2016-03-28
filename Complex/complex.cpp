@@ -1,55 +1,66 @@
 #include "Complex.h"
+
 #include <math.h>
 #include <iostream>
 #include <fstream>
 
 using namespace std;
 
-Complex::Complex(double my_real, double my_img):real(my_real),
-    img(my_img){
-}
+Complex::Complex(double my_real, double my_img) :
+    real(my_real), img(my_img)
+{}
 
-const Complex& Complex::operator = (const Complex & c){
+const Complex & Complex::operator=(const Complex &c)
+{
     real = c.real;
     img = c.img;
     return *this;
 }
 
-Complex& Complex::operator += (const Complex &c){
+Complex & Complex::operator+=(const Complex &c)
+{
     real = real + c.real;
     img = img + c.img;
     return *this;
 }
 
-Complex& Complex::operator -= (const Complex &c){
+Complex & Complex::operator-=(const Complex &c)
+{
     real = real - c.real;
     img = img - c.img;
     return *this;
 }
 
-Complex& Complex::operator *= (const Complex &c){
+Complex & Complex::operator*=(const Complex &c)
+{
     real = real * c.real - img * c.img;
     img = real * c.img + img * c.real;
     return *this;
 }
 
-Complex& Complex::operator /= (const Complex &c){
-    real = (real * c.real + img * c.img)/(c.img * c.img + c.real * c.real);
-    img = (img * c.real - real * c.img)/(c.img * c.img + c.real * c.real);
+Complex & Complex::operator /= (const Complex &c)
+{
+    real = (real * c.real + img * c.img)
+            / (c.img * c.img + c.real * c.real);
+    img = (img * c.real - real * c.img)
+            / (c.img * c.img + c.real * c.real);
     return *this;
 }
 
-std::ostream & operator <<(std::ostream & out, Complex const & c) {
+std::ostream & operator<<(std::ostream &out, Complex const &c)
+{
     out << c.real << " + i*" << c.img;
     return out;
 }
 
-std::istream & operator >> (std::istream & in, Complex & c) {
+std::istream & operator>>(std::istream &in, Complex &c)
+{
     in >> c.real >> c.img;
     return in;
 }
 
-Complex Complex::operator ^ (const double &n){
+Complex Complex::operator^(const double &n)
+{
     Complex tmp;
     double abs = this->abs();
     double arg = this->arg();
@@ -60,35 +71,41 @@ Complex Complex::operator ^ (const double &n){
     return tmp;
 }
 
-double Complex::abs() const{
-    double abs = sqrt(real*real + img*img);
+double Complex::abs() const
+{
+    double abs = sqrt(real * real + img * img);
     return abs;
 }
 
-double Complex::arg() const{
-    double arg = atan(img/real);
+double Complex::arg() const
+{
+    double arg = atan(img / real);
     return arg;
 }
 
-Complex operator + (Complex const & c1, Complex const & c2) {
+Complex operator+(Complex const &c1, Complex const &c2)
+{
     Complex c = c1;
     c += c2;
     return c;
 }
 
-Complex operator - (Complex const & c1, Complex const & c2) {
+Complex operator-(Complex const &c1, Complex const &c2)
+{
     Complex c = c1;
     c -= c2;
     return c;
 }
 
-Complex operator * (Complex const & c1, Complex const & c2) {
+Complex operator*(Complex const &c1, Complex const &c2)
+{
     Complex c = c1;
     c *= c2;
     return c;
 }
 
-Complex operator / (Complex const & c1, Complex const & c2) {
+Complex operator/(Complex const &c1, Complex const &c2)
+{
     Complex c = c1;
     c /= c2;
     return c;

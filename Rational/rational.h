@@ -6,10 +6,10 @@
 struct Rational{
     Rational(int numerator = 0, int denominator = 1);
 
-    void add(Rational const & rational);
-    void sub(Rational const & rational);
-    void mul(Rational const & rational);
-    void div(Rational const & rational);
+    void add(Rational const &rational);
+    void sub(Rational const &rational);
+    void mul(Rational const &rational);
+    void div(Rational const &rational);
 
     void reduce();
 
@@ -17,44 +17,44 @@ struct Rational{
     void inv();
     double to_double() const;
 
-    Rational & operator += (Rational const & r);
-    Rational & operator -= (Rational const & r);
-    Rational & operator *= (Rational const & r);
-    Rational & operator /= (Rational const & r);
-    Rational operator -();
-    Rational operator +();
+    Rational &operator+=(Rational const &r);
+    Rational &operator-=(Rational const &r);
+    Rational &operator*=(Rational const &r);
+    Rational &operator/=(Rational const &r);
+    Rational operator-();
+    Rational operator+();
 
     operator double() const;
 
-    friend std::ostream & operator << (std::ostream &, Rational const &);
-    friend std::istream& operator >> (std::istream &, Rational &);
+    friend std::ostream &operator << (std::ostream &out, Rational const &r);
+    friend std::istream &operator >> (std::istream &in, Rational &r);
 
 private:
-    int gcd (int const & a, int const & b);
+    int gcd (int const &a, int const &b);
 
 private:
     int numerator_;
     unsigned denominator_;
 };
 
-Rational operator + (Rational const & r1, Rational const & r2);
+Rational operator + (Rational const &r1, Rational const &r2);
 
-Rational operator - (Rational const & r1, Rational const & r2);
+Rational operator - (Rational const &r1, Rational const &r2);
 
-Rational operator * (Rational const & r1, Rational const & r2);
+Rational operator * (Rational const &r1, Rational const &r2);
 
-Rational operator / (Rational const & r1, Rational const & r2);
+Rational operator / (Rational const &r1, Rational const &r2);
 
-bool operator == (Rational const & r1, Rational const & r2);
+bool operator == (Rational const &r1, Rational const &r2);
 
-bool operator != (Rational const & r1, Rational const & r2);
+bool operator != (Rational const &r1, Rational const &r2);
 
-bool operator < (Rational const & r1, Rational const & r2);
+bool operator < (Rational const &r1, Rational const &r2);
 
-bool operator <= (Rational const & r1, Rational const & r2);
+bool operator <= (Rational const &r1, Rational const &r2);
 
-bool operator > (Rational const & r1, Rational const & r2);
+bool operator > (Rational const &r1, Rational const &r2);
 
-bool operator >= (Rational const & r1, Rational const & r2);
+bool operator >= (Rational const &r1, Rational const &r2);
 
 #endif // RATIONAL_H

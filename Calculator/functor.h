@@ -4,7 +4,7 @@
 class Functor
 {
 public:
-    virtual double operator()(const double & val) = 0;
+    virtual double operator()(const double &val) = 0;
     virtual ~Functor() {}
 };
 

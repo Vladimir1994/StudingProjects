@@ -4,7 +4,7 @@
 #include "expression.h"
 #include "scope.h"
 
-class Variable : Expression
+class Variable : public Expression
 {
 public:
     Variable(std::string const &name);

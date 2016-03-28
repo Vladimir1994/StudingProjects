@@ -69,17 +69,20 @@ ApplicationWindow {
             autoScroll : true
             cursorVisible : true
 
-            font.pixelSize: 20//*heightScale
+            font.pixelSize: 20 * heightScale
             color: "Darkslategray"
 
             onAccepted: {
                 if(text != "") {
                     if(command_history.text === "")
-                        command_history.text = command_history.text + "Command: " + text
+                        command_history.text = command_history.text
+                            + "Command: " + text
                     else
-                        command_history.text = command_history.text + "\n" + "Command: " + text
+                        command_history.text = command_history.text
+                            + "\n" + "Command: " + text
 
-                    command_history.text =command_history.text + "\n" + "Echo: " + CommandManager.receive(text) + "\n";
+                    command_history.text =command_history.text + "\n" + "Echo: "
+                        + CommandManager.receive(text) + "\n";
                     text = ""
                 }
             }

@@ -10,22 +10,22 @@ public:
     Any();
 
     template <class T>
-    Any(const T & p);
+    Any(const T &p);
 
-    Any(Any const & any);
+    Any(Any const &any);
 
     ~Any();
 
-    Any & operator = (Any const & any);
+    Any & operator=(Any const &any);
 
     template <class T>
-    Any & operator = (T const & ptr);
+    Any & operator=(T const &ptr);
 
     template <class T>
     T * cast();
 
 private:
-    ICloneable * ptr_;
+    ICloneable *ptr_;
 };
 
 #include "any.tpp"
