@@ -1,14 +1,15 @@
 #ifndef TRANSFORMER_H
 #define TRANSFORMER_H
 
-struct Expression;
-struct Number;
-struct BinaryOperation;
-struct FunctionCall;
-struct Variable;
+class Expression;
+class Number;
+class BinaryOperation;
+class FunctionCall;
+class Variable;
 
-struct Transformer
+class Transformer
 {
+public:
     virtual ~Transformer() {}
     virtual Expression *transformNumber(Number const *) = 0;
     virtual Expression *transformBinaryOperation(BinaryOperation const *) = 0;

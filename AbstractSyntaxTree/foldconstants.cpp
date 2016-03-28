@@ -21,8 +21,7 @@ Expression * FoldConstants::transformBinaryOperation(BinaryOperation const *bino
     Number *p_l_1  =  dynamic_cast<Number*>(p_l);
     Number *p_r_1  =  dynamic_cast<Number*>(p_r);
 
-    if((p_l_1) && (p_r_1))
-    {
+    if ((p_l_1) && (p_r_1)) {
         Expression * f = new Number(expression->evaluate(sc));
         delete expression;
         return f;
@@ -34,13 +33,10 @@ Expression * FoldConstants::transformFunctionCall(FunctionCall const *fcall)
 {
     Scope *sc;
     Expression const * p = fcall->arg()->transform(this);
-    if (dynamic_cast<const Number*>(p))
-    {
+    if (dynamic_cast<const Number*>(p)) {
         delete p;
         return new Number(fcall->evaluate(sc));
-    }
-    else
-    {
+    } else {
         delete p;
         return new FunctionCall(fcall->name(), fcall->arg()->transform(this));
     }

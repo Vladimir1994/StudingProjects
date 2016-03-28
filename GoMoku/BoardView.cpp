@@ -62,7 +62,8 @@ void BoardView::StartGame()
             while (move_O == false);
         }
     }
-    while ((myBoard_->isWin(xO, yO) == noWin) && (myBoard_->isWin(xX, yX) == noWin));
+    while ((myBoard_->isWin(xO, yO) == noWin)
+           && (myBoard_->isWin(xX, yX) == noWin));
 
     wintype whoWiw = myBoard_->isWin(xO, yO);
     if (whoWiw == noWin)

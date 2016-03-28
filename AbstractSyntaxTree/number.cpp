@@ -9,12 +9,12 @@ double Number::value() const
     return value_;
 }
 
-double Number::evaluate(Scope * sc) const
+double Number::evaluate(Scope *sc) const
 {
     return value_;
 }
 
-Expression * Number::transform(Transformer * tr) const
+Expression * Number::transform(Transformer *tr) const
 {
     return tr->transformNumber(this);
 }

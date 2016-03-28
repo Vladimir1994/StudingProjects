@@ -5,8 +5,9 @@
 #include "scope.h"
 #include "transformer.h"
 
-struct Number : Expression
+class Number : public Expression
 {
+public:
     Number(double value);
     double value() const;
     double evaluate(Scope *sc) const;

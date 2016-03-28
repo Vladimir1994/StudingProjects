@@ -1,12 +1,13 @@
 #ifndef IOBSERVER_H
 #define IOBSERVER_H
 
-class Model;
+#include "model.h";
 
-class IObserver {
+class IObserver
+{
 
 public:
-    virtual void handleEvent(const Model & mdl) = 0;
+    virtual void handleEvent(const Model &mdl) = 0;
     virtual ~IObserver() {}
 
 };

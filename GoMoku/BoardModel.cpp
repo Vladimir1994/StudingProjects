@@ -11,7 +11,7 @@ BoardModel::BoardModel():fieldSize_(10),winSize_(5)
 bool BoardModel::makeMove(const int &x, const int &y, const signtype &sign)
 {
     if ((x < fieldSize_) && (x >= 0) && (y < fieldSize_) &&
-        (y >= 0) && (board_[x][y] == noSign)) {
+            (y >= 0) && (board_[x][y] == noSign)) {
         board_[x][y] = sign;
 		return true;
     } else {
@@ -25,17 +25,17 @@ wintype BoardModel::isWin(const int &lastMoveX, const int &lastMoveO)
 
 	int count = 1;
 	int sum = 1;
-    while (((lastMoveX + count) < fieldSize_) &&
-            (board_[lastMoveX][lastMoveO]
-             == board_[lastMoveX + count][lastMoveO])) {
+    while (((lastMoveX + count) < fieldSize_)
+           && (board_[lastMoveX][lastMoveO]
+               == board_[lastMoveX + count][lastMoveO])) {
 		count++;
 		sum++;
     }
 
 	count = 1;
-    while (((lastMoveX - count) >= 0) &&
-             (board_[lastMoveX][lastMoveO]
-             == board_[lastMoveX - count][lastMoveO])) {
+    while (((lastMoveX - count) >= 0)
+           && (board_[lastMoveX][lastMoveO]
+               == board_[lastMoveX - count][lastMoveO])) {
 		count++;
 		sum++;
     }
@@ -46,9 +46,9 @@ wintype BoardModel::isWin(const int &lastMoveX, const int &lastMoveO)
 
 	count = 1;
 	sum = 1;
-    while (((lastMoveO + count) < fieldSize_) &&
-            (board_[lastMoveX][lastMoveO]
-            == board_[lastMoveX][lastMoveO + count])) {
+    while (((lastMoveO + count) < fieldSize_)
+           && (board_[lastMoveX][lastMoveO]
+               == board_[lastMoveX][lastMoveO + count])) {
 		count++;
 		sum++;
     }
@@ -66,16 +66,17 @@ wintype BoardModel::isWin(const int &lastMoveX, const int &lastMoveO)
 
 	count = 1;
 	sum = 1;
-    while (((lastMoveO + count) < fieldSize_) && ((lastMoveX + count) < fieldSize_)
+    while (((lastMoveO + count) < fieldSize_)
+           && ((lastMoveX + count) < fieldSize_)
            && (board_[lastMoveX][lastMoveO]
                 == board_[lastMoveX + count][lastMoveO + count])) {
 		count++;
 		sum++;
     }
 	count = 1;
-    while (((lastMoveO - count) >= 0)  && ((lastMoveX -count) >= 0) &&
-            (board_[lastMoveX][lastMoveO]
-             == board_[lastMoveX - count][lastMoveO - count])) {
+    while (((lastMoveO - count) >= 0)  && ((lastMoveX -count) >= 0)
+           && (board_[lastMoveX][lastMoveO]
+               == board_[lastMoveX - count][lastMoveO - count])) {
 		count++;
 		sum++;
     }

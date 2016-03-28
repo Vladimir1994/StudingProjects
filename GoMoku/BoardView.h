@@ -3,7 +3,8 @@
 
 #include "BoardModel.h"
 
-class BoardView {
+class BoardView
+{
 public:
     BoardView(BoardModel *board);
     void StartGame();

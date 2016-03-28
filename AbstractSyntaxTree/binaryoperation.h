@@ -4,8 +4,9 @@
 #include "expression.h"
 #include "scope.h"
 
-struct BinaryOperation : Expression
+class BinaryOperation : Expression
 {
+public:
     enum
     {
         PLUS = '+',

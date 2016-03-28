@@ -1,7 +1,8 @@
-#include <iostream>
+#include "sortings.h"
+
 #include <vector>
 
-#include "sortings.h"
+#include <iostream>
 
 using namespace std;
 
@@ -15,21 +16,18 @@ int main()
     mergesort(v_2, 0, 4);
     qsort(v_3, 0, 4);
 
-    for(unsigned int i = 0; i < v_1.size(); i++) {
+    for(unsigned int i = 0; i < v_1.size(); i++)
         cout << v_1[i] << " ";
-    }
 
     cout << endl;
 
-    for(unsigned int i = 0; i < v_2.size(); i++) {
+    for(unsigned int i = 0; i < v_2.size(); i++)
         cout << v_2[i] << " ";
-    }
 
     cout << endl;
 
-    for(unsigned int i = 0; i < v_3.size(); i++) {
+    for(unsigned int i = 0; i < v_3.size(); i++)
         cout << v_3[i] << " ";
-    }
 
     cout << endl;
 

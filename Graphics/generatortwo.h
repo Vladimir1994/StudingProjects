@@ -1,8 +1,9 @@
 #ifndef GENERATORTWO_H
 #define GENERATORTWO_H
 
-#include <math.h>
 #include "generator.h"
+
+#include <math.h>
 
 class GeneratorTwo : public Generator
 {

@@ -1,9 +1,11 @@
 #include "variable.h"
 #include "transformer.h"
 
-Variable::Variable(std::string const &name) : name_(name) { }
+Variable::Variable(std::string const &name) : name_(name)
+{}
 
-std::string const & Variable::name() const {
+std::string const & Variable::name() const
+{
     return name_;
 }
 

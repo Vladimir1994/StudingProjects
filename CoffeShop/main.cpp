@@ -1,15 +1,10 @@
-/*
-* Пример использования паттернов
-* decorator, template method.
-*/
-
-
-#include <iostream>
 #include "coffe.h"
 #include "latte.h"
 #include "espresso.h"
 #include "decoratorchocolate.h"
 #include "decoratormilk.h"
+
+#include <iostream>
 
 int main()
 {

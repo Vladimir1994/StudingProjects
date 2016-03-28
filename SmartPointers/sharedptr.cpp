@@ -1,4 +1,5 @@
 #include "sharedptr.h"
+
 #include <algorithm>
 
 SharedPtr::SharedPtr(Expression *ptr)

@@ -3,8 +3,9 @@
 
 #include "transformer.h"
 
-struct FoldConstants : Transformer
+class FoldConstants : public Transformer
 {
+public:
     Expression *transformNumber(Number const *number);
     Expression *transformBinaryOperation(BinaryOperation const *binop);
     Expression *transformFunctionCall(FunctionCall const *fcall);

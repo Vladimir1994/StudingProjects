@@ -1,8 +1,9 @@
 #ifndef GENERATORTHREE_H
 #define GENERATORTHREE_H
 
-#include <math.h>
 #include "generator.h"
+
+#include <math.h>
 
 class GeneratorThree : public Generator
 {

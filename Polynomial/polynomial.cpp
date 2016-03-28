@@ -125,7 +125,7 @@ void Polynomial::ParsePoly(const string &polynomial)
                                                   polynomial.length()
                                                   - foundCur);
             if (!polynomialElement.empty() &&
-                isStringPolyElement(polynomialElement)) {
+                    isStringPolyElement(polynomialElement)) {
                 polyList.push_back(polynomialElement);
                 break;
             } else {
@@ -137,7 +137,7 @@ void Polynomial::ParsePoly(const string &polynomial)
             foundCur - foundPrev);
 
         if (!polynomialElement.empty() &&
-           isStringPolyElement(polynomialElement)) {
+                isStringPolyElement(polynomialElement)) {
             polyList.push_back(polynomialElement);
         } else {
             throw WrongFormatException();

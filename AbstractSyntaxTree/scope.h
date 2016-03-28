@@ -1,11 +1,12 @@
 #ifndef SCOPE_H
 #define SCOPE_H
 
-#include <String>
+#include <string>
 
-struct Scope
+class Scope
 {
-    virtual ~Scope() { }
+public:
+    virtual ~Scope() {}
     virtual double variableValue(std::string const &name) const = 0;
 };
 

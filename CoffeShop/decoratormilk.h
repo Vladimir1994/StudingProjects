@@ -3,9 +3,10 @@
 
 #include "idecorator.h"
 
-class DecoratorMilk : public IDecorator {
+class DecoratorMilk : public IDecorator
+{
 public:
-    DecoratorMilk(IProduct * product = 0, double price = 0.4);
+    DecoratorMilk(IProduct *product = 0, double price = 0.4);
     virtual double price();
 };
 #endif // DECORATORMILK_H

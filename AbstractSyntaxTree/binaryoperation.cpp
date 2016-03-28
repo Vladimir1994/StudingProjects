@@ -4,7 +4,9 @@
 
 BinaryOperation::BinaryOperation(Expression const *left, int op, Expression const *right)
     : left_(left), right_(right), op_(op)
-{ assert(left_ && right_); }
+{
+    assert(left_ && right_);
+}
 
 BinaryOperation::~BinaryOperation()
 {
@@ -31,8 +33,7 @@ double BinaryOperation::evaluate(Scope *sc) const
 {
     double left = left_->evaluate(sc);
     double right = right_->evaluate(sc);
-    switch (op_)
-    {
+    switch (op_) {
         case PLUS: return left + right;
         case MINUS: return left - right;
         case DIV: return left / right;

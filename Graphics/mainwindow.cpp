@@ -13,13 +13,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    PlotHolder * holder_1 = new PlotHolder(ui->customPlot_1);
+    PlotHolder *holder_1 = new PlotHolder(ui->customPlot_1);
     holder_1->addCurve(1);
     obsList_.append(holder_1);
-    PlotHolder * holder_2 = new PlotHolder(ui->customPlot_2);
+    PlotHolder *holder_2 = new PlotHolder(ui->customPlot_2);
     holder_2->addCurve(2);
     obsList_.append(holder_2);
-    PlotHolder * holder_3 = new PlotHolder(ui->customPlot_3);
+    PlotHolder *holder_3 = new PlotHolder(ui->customPlot_3);
     holder_3->addCurve(3);
     obsList_.append(holder_3);
 

@@ -1,7 +1,7 @@
+#include "../../polynomial.h"
+
 #include <QtTest/QtTest>
 #include <string>
-
-#include "../../polynomial.h"
 
 class TestPolynomial: public QObject
 {
@@ -17,7 +17,8 @@ private slots:
     void derivative();
 };
 
-void TestPolynomial::getPoly() {
+void TestPolynomial::getPoly()
+{
     std::string polyString = "-x^2+3*x-7";
     Polynomial poly(polyString);
 
@@ -43,7 +44,8 @@ void TestPolynomial::getPoly() {
     QCOMPARE(polyOne.getPoly(), string("-y^2+3*y-7"));
 }
 
-void TestPolynomial::setPoly() {
+void TestPolynomial::setPoly()
+{
     std::string polyStringOne = "-x^2+3*x-7";
     Polynomial poly(polyStringOne);
     std::string polyStringTwo = "-2*x^2+4*x-37";
@@ -52,7 +54,8 @@ void TestPolynomial::setPoly() {
     QCOMPARE(poly.getPoly(), polyStringTwo);
 }
 
-void TestPolynomial::equal() {
+void TestPolynomial::equal()
+{
     std::string polyStringOne = "-x^2+3*x-7";
     Polynomial polyOne(polyStringOne);
 
@@ -63,7 +66,8 @@ void TestPolynomial::equal() {
     QCOMPARE(polyOne.getPoly(), polyStringTwo);
 }
 
-void TestPolynomial::plus() {
+void TestPolynomial::plus()
+{
     std::string polyStringOne = "-x^2+3*x-7";
     Polynomial polyOne(polyStringOne);
 
@@ -82,7 +86,8 @@ void TestPolynomial::plus() {
     QCOMPARE((polyOne + polyTwo).getPoly(), std::string("5*x^3+8*x^2+4*x-37"));
 }
 
-void TestPolynomial::minus() {
+void TestPolynomial::minus()
+{
     std::string polyStringOne = "-x^2+3*x-7";
     Polynomial polyOne(polyStringOne);
 
@@ -101,7 +106,8 @@ void TestPolynomial::minus() {
     QCOMPARE((polyTwo - polyOne).getPoly(), std::string("5*x^3-12*x^2+4*x-37"));
 }
 
-void TestPolynomial::multiplicate() {
+void TestPolynomial::multiplicate()
+{
     std::string polyStringOne = "-x^2+3*x-7";
     Polynomial polyOne(polyStringOne);
 
@@ -118,7 +124,8 @@ void TestPolynomial::multiplicate() {
     QCOMPARE((polyTwo * polyOne).getPoly(), std::string("10*x^3+8*x-74"));
 }
 
-void TestPolynomial::derivative() {
+void TestPolynomial::derivative()
+{
     std::string polyString = "-x^2+3*x-7";
     Polynomial poly(polyString);
 

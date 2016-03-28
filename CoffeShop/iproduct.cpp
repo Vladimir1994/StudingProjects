@@ -2,6 +2,6 @@
 
 #include <iostream>
 
-IProduct::IProduct(double price) : price_ (price) {}
+IProduct::IProduct(double price) : price_ (price)
+{}
 
-IProduct::~IProduct() {}

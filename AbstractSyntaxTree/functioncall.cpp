@@ -23,16 +23,11 @@ Expression const * FunctionCall::arg() const
 
 double FunctionCall::evaluate(Scope *sc) const
 {
-    if(name_ == "sqrt")
-    {
+    if (name_ == "sqrt") {
         return sqrt(arg_->evaluate(sc));
-    }
-    else if(name_ == "abs")
-    {
+    } else if (name_ == "abs") {
         return fabs(arg_->evaluate(sc));
-    }
-    else
-    {
+    } else {
         return 0.0;
     }
 }

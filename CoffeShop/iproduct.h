@@ -1,11 +1,12 @@
 #ifndef IPRODUCT_H
 #define IPRODUCT_H
 
-class IProduct {
+class IProduct
+{
 public:
     IProduct(double price = 0);
     virtual double price() = 0;
-    virtual ~IProduct();
+    virtual ~IProduct() {}
 
 protected:
     const double price_;

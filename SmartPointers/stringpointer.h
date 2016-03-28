@@ -1,5 +1,6 @@
 #ifndef STRINGPOINTER_H
 #define STRINGPOINTER_H
+
 #include <string>
 
 class StringPointer

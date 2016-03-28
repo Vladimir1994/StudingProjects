@@ -13,7 +13,8 @@ Expression * CopySyntaxTree::transformNumber(Number const *number)
     return number_;
 }
 
-Expression * CopySyntaxTree::transformBinaryOperation(BinaryOperation const *binop){
+Expression * CopySyntaxTree::transformBinaryOperation(BinaryOperation const *binop)
+{
     int op = binop->operation();
     Expression const *  expression_l = binop->left()->transform(this);
     Expression const *  expression_r = binop->right()->transform(this);
@@ -34,4 +35,6 @@ Expression * CopySyntaxTree::transformVariable(Variable const *var)
     Expression *var_ = new Variable(var->name());
     return var_;
 }
-CopySyntaxTree::~CopySyntaxTree() {}
+
+CopySyntaxTree::~CopySyntaxTree()
+{}

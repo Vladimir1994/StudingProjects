@@ -4,8 +4,9 @@
 #include "expression.h"
 #include "scope.h"
 
-struct Variable : Expression
+class Variable : Expression
 {
+public:
     Variable(std::string const &name);
     std::string const &name() const;
     double evaluate(Scope *sc) const;

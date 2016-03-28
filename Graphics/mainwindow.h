@@ -1,11 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "iobserver.h"
+
 #include <QMainWindow>
 #include <QList>
-#include <iobserver.h>
 
-namespace Ui {
+namespace Ui
+{
     class MainWindow;
 }
 
@@ -18,7 +20,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow * ui;
+    Ui::MainWindow *ui;
     QList<IObserver *> obsList_;
 };
 

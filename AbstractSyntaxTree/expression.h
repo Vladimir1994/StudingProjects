@@ -1,11 +1,12 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
-struct Scope;
-struct Transformer;
+class Scope;
+class Transformer;
 
-struct Expression
+class Expression
 {
+public:
     virtual double evaluate(Scope *sc) const = 0;
     virtual ~Expression() {}
     virtual Expression * transform(Transformer *tr) const = 0;

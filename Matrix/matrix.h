@@ -9,15 +9,16 @@ public:
     Matrix();
     ~Matrix();
 
-    bool read(const char *);
-    bool add(const Matrix &);
-    bool multiply(const Matrix &);
+    bool read(const char *inStr);
+    bool add(const Matrix &m);
+    bool multiply(const Matrix &m);
     void print() const;
 
 private:
     int length_;
     int height_;
-    double ** matrix_;
+    double **matrix_;
+
 private:
     void initMatrix(int length, int height, int val = 0);
 };

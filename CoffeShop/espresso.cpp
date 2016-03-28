@@ -2,14 +2,18 @@
 
 #include <iostream>
 
-Espresso::Espresso(double price) : IDrink(price) {}
+Espresso::Espresso(double price) : IDrink(price)
+{}
 
-double Espresso::price() {
+double Espresso::price()
+{
     return price_;
 }
 
-void Espresso::recStepTwo() {
+void Espresso::recStepTwo()
+{
     std::cout << "Make espresso." << std::endl;
 }
 
-void Espresso::recStepFour() {}
+void Espresso::recStepFour()
+{}
