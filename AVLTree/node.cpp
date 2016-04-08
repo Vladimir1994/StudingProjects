@@ -12,40 +12,40 @@ Node::~Node()
         delete left_;
 }
 
-Node * Node::Insert(int key)
+Node * Node::insert(int key)
 {
     if (!this)
         return new Node(key);
     if (key < key_)
-        left_ = left_->Insert(key);
+        left_ = left_->insert(key);
     else
-        right_ = right_->Insert(key);
-    return this->Balance();
+        right_ = right_->insert(key);
+    return this->balance();
 }
 
-const Node * Node::Find(int key) const
+const Node * Node::find(int key) const
 {
     if (!this)
         return 0;
 
     if (key < key_)
-        return left_->Find(key);
+        return left_->find(key);
     else if (key > key_)
-        return right_->Find(key);
+        return right_->find(key);
     else
         return this;
 }
 
-Node * Node::Remove(int key)
+Node * Node::remove(int key)
 {
     if (!this)
         return 0;
 
     if (key < key_) {
-        left_ = left_->Remove(key);
+        left_ = left_->remove(key);
     }
     else if (key > key_) {
-        right_ = right_->Remove(key);
+        right_ = right_->remove(key);
     }
     else {
         Node *q = left_;
@@ -53,12 +53,12 @@ Node * Node::Remove(int key)
         delete this;
         if (!r)
             return q;
-        Node *min = r->FindMin();
-        min->setRight(r->RemoveMin());
+        Node *min = r->findMin();
+        min->setRight(r->removeMin());
         min->setLeft(q);
-        return min->Balance();
+        return min->balance();
     }
-    return this->Balance();
+    return this->balance();
 }
 
 unsigned char Node::height()
@@ -71,7 +71,7 @@ int Node::bFactor()
     return this->right()->height() - this->left()->height();
 }
 
-void Node::FixHeight()
+void Node::fixHeight()
 {
     unsigned char heighttLeft = this->left()->height();
     unsigned char heightRight = this->right()->height();
@@ -99,51 +99,51 @@ void Node::setRight(Node *node)
     right_ = node;
 }
 
-Node * Node::RotateRight()
+Node * Node::rotateRight()
 {
     Node *q = left_;
     left_ = q->right();
     q->setRight(this);
-    this->FixHeight();
-    q->FixHeight();
+    this->fixHeight();
+    q->fixHeight();
     return q;
 }
 
-Node * Node::RotateLeft()
+Node * Node::rotateLeft()
 {
     Node *p = right_;
     right_ = p->left();
     p->setLeft(this);
-    this->FixHeight();
-    p->FixHeight();
+    this->fixHeight();
+    p->fixHeight();
     return p;
 }
 
-Node * Node::Balance()
+Node * Node::balance()
 {
-    this->FixHeight();
+    this->fixHeight();
     if (this->bFactor() == 2) {
         if (right_->bFactor() < 0)
-            right_->RotateRight();
-        return this->RotateLeft();
+            right_->rotateRight();
+        return this->rotateLeft();
     }
     if (this->bFactor() == -2) {
         if (left_->bFactor() > 0)
-            left_->RotateLeft();
-        return this->RotateRight();
+            left_->rotateLeft();
+        return this->rotateRight();
     }
     return this;
 }
 
-Node * Node::FindMin()
+Node * Node::findMin()
 {
-    return left_ ? left_->FindMin() : this;
+    return left_ ? left_->findMin() : this;
 }
 
-Node * Node::RemoveMin()
+Node * Node::removeMin()
 {
     if (left_ == 0)
         return right_;
-    left_ = left_->RemoveMin();
-    return this->Balance();
+    left_ = left_->removeMin();
+    return this->balance();
 }

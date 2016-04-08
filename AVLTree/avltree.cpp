@@ -10,25 +10,24 @@ AVLTree::~AVLTree() {
 }
 
 bool AVLTree::contains(int key) const {
-    if(root_->Find(key))
+    if(root_->find(key))
         return true;
     else
         return false;
 }
 
-
 bool AVLTree::insert(int key) {
-    if(root_->Find(key))
+    if(root_->find(key))
         return false;
     else {
-        root_->Insert(key);
+        root_->insert(key);
         return true;
     }
 }
 
 bool AVLTree::remove(int key) {
-    if(root_->Find(key)) {
-        root_->Remove(key);
+    if(root_->find(key)) {
+        root_->remove(key);
         return true;
     }
     else
