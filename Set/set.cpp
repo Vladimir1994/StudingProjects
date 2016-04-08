@@ -36,7 +36,7 @@ size_t Set::size() const
     return size_;
 }
 
-bool Set::Insert(int value)
+bool Set::insert(int value)
 {
     item *it = first_;
     while (it != 0 && it->getValue() > value)
@@ -68,7 +68,7 @@ bool Set::Insert(int value)
     }
 }
 
-bool Set::Erase(int value)
+bool Set::erase(int value)
 {
     item *it = first_;
     while (it != 0 && it->getValue() != value)
@@ -100,7 +100,7 @@ bool Set::Erase(int value)
     }
 }
 
-bool Set::Contains(int value)
+bool Set::contains(int value)
 {
     item *it = first_;
     while (it != 0 && it->getValue() != value)
@@ -111,7 +111,7 @@ bool Set::Contains(int value)
         return true;
 }
 
-void Set::Union(Set const &set)
+void Set::merge(Set const &set)
 {
     item *it_1 = first_;
     item *it_2 = set.first_;
@@ -153,7 +153,7 @@ void Set::Union(Set const &set)
     }
 }
 
-void Set::Intersection(Set const &set)
+void Set::intersection(Set const &set)
 {
     item *it_1 = first_;
     item *it_2 = set.first_;
@@ -216,7 +216,7 @@ void Set::Intersection(Set const &set)
     }
 }
 
-void Set::Complement(Set const &set)
+void Set::complement(Set const &set)
 {
     item *it_1 = first_;
     item *it_2 = set.first_;
@@ -263,19 +263,19 @@ Set & Set::operator=(const Set &set)
 
 Set & Set::operator+=(Set const &set)
 {
-    this->Union(set);
+    this->merge(set);
     return *this;
 }
 
 Set &Set::operator-=(Set const &set)
 {
-    this->Complement(set);
+    this->complement(set);
     return *this;
 }
 
 Set &Set::operator*=(Set const &set)
 {
-    this->Intersection(set);
+    this->intersection(set);
     return *this;
 }
 
@@ -298,21 +298,21 @@ void Set::swap(Set &set)
 Set operator+(Set const &setFirst, Set const &setSecond)
 {
     Set set(setFirst);
-    set.Union(setSecond);
+    set.merge(setSecond);
     return set;
 }
 
 Set operator-(Set const &setFirst, Set const &setSecond)
 {
     Set set(setFirst);
-    set.Complement(setSecond);
+    set.complement(setSecond);
     return set;
 }
 
 Set operator*(Set const &setFirst, Set const &setSecond)
 {
     Set set(setFirst);
-    set.Intersection(setSecond);
+    set.intersection(setSecond);
     return set;
 }
 

@@ -1,7 +1,7 @@
-#include <cstdlib>
-
 #ifndef ITEM_H
 #define	ITEM_H
+
+#include <cstdlib>
 
 class item
 {
