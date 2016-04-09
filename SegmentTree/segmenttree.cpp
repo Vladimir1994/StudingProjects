@@ -16,11 +16,11 @@ void SegmentTree::set(int idx, int val)
     int neighbourIndex = neighbour(targetIndex);
     int parentIndex = parent(targetIndex);
     while (targetIndex > 0) {
-        int min_child = std::min(tree_.at(targetIndex),
+        int minChild = std::min(tree_.at(targetIndex),
                                  tree_.at(neighbourIndex));
-        if (tree_.at(parentIndex) == min_child)
+        if (tree_.at(parentIndex) == minChild)
             break;
-        tree_.at(parentIndex) = min_child;
+        tree_.at(parentIndex) = minChild;
         targetIndex = parentIndex;
         neighbourIndex = neighbour(targetIndex);
         parentIndex = parent(targetIndex);
