@@ -1,0 +1,8 @@
+#include "segmenttree.h"
+
+int main()
+{
+    return 0;
+}
+
+
