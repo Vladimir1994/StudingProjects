@@ -27,12 +27,12 @@ void SegmentTree::set(int idx, int val)
     }
 }
 
-int SegmentTree::min(int lPoint, int rPoint)
+int SegmentTree::min(int lPoint, int rPoint) const
 {
     return minRec(lPoint, rPoint, 0, tree_.size() / 2);
 }
 
-int SegmentTree::minRec(int lPoint, int rPoint, int l, int r)
+int SegmentTree::minRec(int lPoint, int rPoint, int l, int r) const
 {
     int size = tree_.size() / 2;
     if (lPoint == rPoint)
@@ -54,7 +54,7 @@ int SegmentTree::minRec(int lPoint, int rPoint, int l, int r)
                     minRec((l + r) / 2 + 1, rPoint, (l + r) / 2 + 1, r));
 }
 
-int SegmentTree::neighbour(int arg)
+int SegmentTree::neighbour(int arg) const
 {
     if(arg % 2 == 0)
         return --arg;
@@ -62,7 +62,7 @@ int SegmentTree::neighbour(int arg)
         return ++arg;
 }
 
-int SegmentTree::parent(int arg)
+int SegmentTree::parent(int arg) const
 {
     return (arg - 1) / 2;
 }
