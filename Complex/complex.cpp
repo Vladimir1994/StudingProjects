@@ -47,7 +47,7 @@ Complex & Complex::operator /= (const Complex &c)
     return *this;
 }
 
-std::ostream & operator<<(std::ostream &out, Complex const &c)
+std::ostream & operator<<(std::ostream &out, const Complex &c)
 {
     out << c.real << " + i*" << c.img;
     return out;
@@ -59,7 +59,7 @@ std::istream & operator>>(std::istream &in, Complex &c)
     return in;
 }
 
-Complex Complex::operator^(const double &n)
+Complex Complex::operator^(double n)
 {
     Complex tmp;
     double abs = this->abs();
@@ -83,28 +83,28 @@ double Complex::arg() const
     return arg;
 }
 
-Complex operator+(Complex const &c1, Complex const &c2)
+Complex operator+(const Complex &c2, const Complex &c1)
 {
     Complex c = c1;
     c += c2;
     return c;
 }
 
-Complex operator-(Complex const &c1, Complex const &c2)
+Complex operator-(const Complex &c1, const Complex &c2)
 {
     Complex c = c1;
     c -= c2;
     return c;
 }
 
-Complex operator*(Complex const &c1, Complex const &c2)
+Complex operator*(const Complex &c1, const Complex &c2)
 {
     Complex c = c1;
     c *= c2;
     return c;
 }
 
-Complex operator/(Complex const &c1, Complex const &c2)
+Complex operator/(const Complex &c1, const Complex &c2)
 {
     Complex c = c1;
     c /= c2;

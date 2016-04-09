@@ -13,9 +13,9 @@ public:
     Complex & operator-=(const Complex &c);
     Complex & operator*=(const Complex &c);
     Complex & operator/=(const Complex &c);
-    Complex operator^(const double &n);
+    Complex operator^(double n);
 
-    friend std::ostream & operator << (std::ostream &out, Complex const &c);
+    friend std::ostream & operator << (std::ostream &out, const Complex &c);
     friend std::istream & operator >> (std::istream &out, Complex &c);
 
     double abs() const;
@@ -26,13 +26,13 @@ private:
     double img;
 };
 
-Complex operator+(Complex const &c1, Complex const &c2);
+Complex operator+(const Complex &c1, const Complex &c2);
 
-Complex operator-(Complex const &c1, Complex const &c2);
+Complex operator-(const Complex &c1, const Complex &c2);
 
-Complex operator*(Complex const &c1, Complex const &c2);
+Complex operator*(const Complex &c1, const Complex &c2);
 
-Complex operator/(Complex const &c1, Complex const &c2);
+Complex operator/(const Complex &c1, const Complex &c2);
 
 #endif	/* Complex_H */
 

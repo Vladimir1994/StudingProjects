@@ -9,34 +9,34 @@ Rational::Rational(int numerator, int denominator)
     this->reduce();
 }
 
-void Rational::add(Rational const &rational)
+void Rational::add(const Rational &r)
 {
-    numerator_ = rational.numerator_ * denominator_
-        + rational.denominator_ * numerator_;
-    denominator_ *= rational.denominator_;
+    numerator_ = r.numerator_ * denominator_
+        + r.denominator_ * numerator_;
+    denominator_ *= r.denominator_;
     this->reduce();
 }
 
-void Rational::sub(Rational const &rational)
+void Rational::sub(const Rational &r)
 {
-    numerator_ =  rational.denominator_*numerator_
-        - rational.numerator_ * denominator_;
-    denominator_ *= rational.denominator_;
+    numerator_ =  r.denominator_*numerator_
+        - r.numerator_ * denominator_;
+    denominator_ *= r.denominator_;
     this->reduce();
 }
 
-void Rational::mul(Rational const &rational)
+void Rational::mul(const Rational &r)
 {
-    numerator_ *= rational.numerator_;
-    denominator_ *= rational.denominator_;
+    numerator_ *= r.numerator_;
+    denominator_ *= r.denominator_;
     this->reduce();
 }
 
-void Rational::div(Rational const &rational)
+void Rational::div(const Rational &r)
 {
-    numerator_ *= rational.denominator_ *
-        (rational.numerator_ / abs(rational.numerator_));
-    denominator_ *= abs(rational.numerator_);
+    numerator_ *= r.denominator_ *
+        (r.numerator_ / abs(r.numerator_));
+    denominator_ *= abs(r.numerator_);
     this->reduce();
 }
 
@@ -66,25 +66,25 @@ double Rational::to_double() const
     return (double)numerator_ / (double)denominator_;
 }
 
-Rational &Rational::operator+=(Rational const &r)
+Rational &Rational::operator+=(const Rational &r)
 {
     this->add(r);
     return *this;
 }
 
-Rational &Rational::operator-=(Rational const &r)
+Rational &Rational::operator-=(const Rational &r)
 {
     this->sub(r);
     return *this;
 }
 
-Rational &Rational::operator*=(Rational const &r)
+Rational &Rational::operator*=(const Rational &r)
 {
     this->mul(r);
     return *this;
 }
 
-Rational &Rational::operator/=(Rational const &r)
+Rational &Rational::operator/=(const Rational &r)
 {
     this->div(r);
     return *this;
@@ -107,7 +107,7 @@ Rational::operator double() const
     return this->to_double();
 }
 
-std::ostream &operator<<(std::ostream &out, Rational const &r)
+std::ostream &operator<<(std::ostream &out, const Rational &r)
 {
     out << r.numerator_ << '/' << r.denominator_;
     return out;
@@ -119,7 +119,7 @@ std::istream &operator>>(std::istream &in, Rational &r)
     return in;
 }
 
-int Rational::gcd(int const &a, int const &b)
+int Rational::gcd(int a, int b)
 {
     if (b == 0)
         return a;
@@ -127,60 +127,60 @@ int Rational::gcd(int const &a, int const &b)
         return gcd (b, a % b);
 }
 
-Rational operator+(Rational const &r1, Rational const &r2)
+Rational operator+(const Rational &r1, const Rational &r2)
 {
     Rational r = r1;
     r.add(r2);
     return r;
 }
 
-Rational operator-(Rational const &r1, Rational const &r2)
+Rational operator-(const Rational &r1, const Rational &r2)
 {
     Rational r = r1;
     r.sub(r2);
     return r;
 }
 
-Rational operator*(Rational const &r1, Rational const &r2)
+Rational operator*(const Rational &r1, const Rational &r2)
 {
     Rational r = r1;
     r.mul(r2);
     return r;
 }
 
-Rational operator/(Rational const &r1, Rational const &r2)
+Rational operator/(const Rational &r1, const Rational &r2)
 {
     Rational r = r1;
     r.div(r2);
     return r;
 }
 
-bool operator==(Rational const &r1, Rational const &r2)
+bool operator==(const Rational &r1, const Rational &r2)
 {
     return r1.to_double() == r2.to_double();
 }
 
-bool operator!=(Rational const &r1, Rational const &r2)
+bool operator!=(const Rational &r1, const Rational &r2)
 {
     return !(r1 == r2);
 }
 
-bool operator<(Rational const &r1, Rational const &r2)
+bool operator<(const Rational &r1, const Rational &r2)
 {
     return r1.to_double() < r2.to_double();
 }
 
-bool operator<=(Rational const &r1, Rational const &r2)
+bool operator<=(const Rational &r1, const Rational &r2)
 {
     return !(r2 < r1);
 }
 
-bool operator>(Rational const &r1, Rational const &r2)
+bool operator>(const Rational &r1, const Rational &r2)
 {
     return r2 < r1;
 }
 
-bool operator>=(Rational const &r1, Rational const &r2)
+bool operator>=(const Rational &r1, const Rational &r2)
 {
     return !(r1 < r2);
 }
