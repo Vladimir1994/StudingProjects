@@ -3,7 +3,7 @@
 SegmentTree::SegmentTree(const std::vector<int> &tree)
 {
     tree_.resize(tree.size());
-    for(int i = tree.size() - 1; i > 0; i-=2) {
+    for (int i = tree.size() - 1; i > 0; i-=2) {
         tree_.at((i + 1) / 2 - 1) = std::min(tree.at(i),
                                               tree.at(i - 1));
     }
@@ -15,10 +15,10 @@ void SegmentTree::set(int idx, int val)
     tree_.at(targetIndex) = val;
     int neighbourIndex = neighbour(targetIndex);
     int parentIndex = parent(targetIndex);
-    while(targetIndex > 0) {
+    while (targetIndex > 0) {
         int min_child = std::min(tree_.at(targetIndex),
                                  tree_.at(neighbourIndex));
-        if(tree_.at(parentIndex) == min_child)
+        if (tree_.at(parentIndex) == min_child)
             break;
         tree_.at(parentIndex) = min_child;
         targetIndex = parentIndex;
@@ -56,7 +56,7 @@ int SegmentTree::minRec(int lPoint, int rPoint, int l, int r) const
 
 int SegmentTree::neighbour(int arg) const
 {
-    if(arg % 2 == 0)
+    if (arg % 2 == 0)
         return --arg;
     else
         return ++arg;
