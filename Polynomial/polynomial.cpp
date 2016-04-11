@@ -134,7 +134,7 @@ void Polynomial::ParsePoly(const string &polynomial)
         }
 
         polynomialElement = polynomial.substr(foundPrev,
-            foundCur - foundPrev);
+                                              foundCur - foundPrev);
 
         if (!polynomialElement.empty() &&
                 isStringPolyElement(polynomialElement)) {
