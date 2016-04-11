@@ -14,7 +14,7 @@ public:
     void insert(int value);
     int extract();
     size_t size() const;
-    friend std::ostream & operator << (std::ostream &os,
+    friend std::ostream & operator<<(std::ostream &os,
                                        BinaryHeap const &heap);
 
 private:

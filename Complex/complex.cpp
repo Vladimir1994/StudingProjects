@@ -38,7 +38,7 @@ Complex & Complex::operator*=(const Complex &c)
     return *this;
 }
 
-Complex & Complex::operator /= (const Complex &c)
+Complex & Complex::operator/=(const Complex &c)
 {
     real = (real * c.real + img * c.img)
             / (c.img * c.img + c.real * c.real);

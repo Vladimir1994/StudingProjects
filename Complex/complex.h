@@ -15,8 +15,8 @@ public:
     Complex & operator/=(const Complex &c);
     Complex operator^(double n);
 
-    friend std::ostream & operator << (std::ostream &out, const Complex &c);
-    friend std::istream & operator >> (std::istream &out, Complex &c);
+    friend std::ostream & operator<<(std::ostream &out, const Complex &c);
+    friend std::istream & operator>>(std::istream &out, Complex &c);
 
     double abs() const;
     double arg() const;

@@ -50,7 +50,7 @@ size_t BinaryHeap::size() const
     return size_;
 }
 
-std::ostream & operator << (std::ostream & os, BinaryHeap const & heap)
+std::ostream & operator<<(std::ostream & os, BinaryHeap const & heap)
 {
     for (size_t i = 0; i < heap.size_; i++)
         os << heap.data_[i] << ' ';
