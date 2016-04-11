@@ -8,11 +8,11 @@ CommandManager::CommandManager(QObject *parent) :
 
 CommandManager::~CommandManager()
 {
-    foreach (auto it, AvaliableCommands )
+    foreach (auto it, AvaliableCommands)
         delete it;
-    foreach (auto it, AppliedCommands )
+    foreach (auto it, AppliedCommands)
         delete it;
-    foreach (auto it, CanceledCommands )
+    foreach (auto it, CanceledCommands)
         delete it;
 }
 
