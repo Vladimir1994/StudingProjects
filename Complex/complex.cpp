@@ -65,9 +65,9 @@ Complex Complex::operator^(double n)
     double abs = this->abs();
     double arg = this->arg();
     abs = pow(abs, n);
-    arg = n*arg;
-    tmp.real = abs*cos(arg);
-    tmp.img = abs*sin(arg);
+    arg = n * arg;
+    tmp.real = abs * cos(arg);
+    tmp.img = abs * sin(arg);
     return tmp;
 }
 
