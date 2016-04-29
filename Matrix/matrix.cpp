@@ -1,7 +1,7 @@
 #include "matrix.h"
 #include <iostream>
 
-Matrix::Matrix():length_(0), height_(0), matrix_(0)
+Matrix::Matrix() : length_(0), height_(0), matrix_(0)
 {}
 
 Matrix::~Matrix()

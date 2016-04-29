@@ -1,6 +1,6 @@
 #include "polynomial.h"
 
-Polynomial::Polynomial(const string &poly, const string &varSymbol):
+Polynomial::Polynomial(const string &poly, const string &varSymbol) :
     varSymbol_(varSymbol)
 {
     if (!poly.empty())
