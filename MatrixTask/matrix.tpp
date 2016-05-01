@@ -7,13 +7,11 @@
 
 template <typename T>
 Matrix<T>::Matrix(size_t rows, size_t cols, T initValue) :
-    rows_(rows), cols_(cols)
+    rows_(rows), cols_(cols), matrixData_(std::vector<T>(rows * cols, initValue))
 {
     static_assert(std::is_same<T, double>::value
                   || std::is_same<T, int>::value,
                   "Only int or double may be used with Matrix template.");
-
-    matrixData_.resize(rows * cols, initValue);
 }
 
 template <typename T>
